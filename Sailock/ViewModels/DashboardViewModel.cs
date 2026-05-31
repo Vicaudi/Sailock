@@ -26,11 +26,7 @@ namespace Sailock.ViewModels
         public string SearchText
         {
             get => _searchText;
-            set
-            {
-                SetProperty(ref _searchText, value);
-                ApplyFilter();
-            }
+            set { SetProperty(ref _searchText, value); ApplyFilter(); }
         }
 
         private PasswordEntry _selectedEntry;
@@ -61,6 +57,45 @@ namespace Sailock.ViewModels
             set => SetProperty(ref _editingEntry, value);
         }
 
+        private bool _isPasswordVisible;
+        public bool IsPasswordVisible
+        {
+            get => _isPasswordVisible;
+            set => SetProperty(ref _isPasswordVisible, value);
+        }
+
+        private bool _hasEditChanges;
+        public bool HasEditChanges
+        {
+            get => _hasEditChanges;
+            set => SetProperty(ref _hasEditChanges, value);
+        }
+
+        // --- Verificación master password ---
+        private bool _isMasterPasswordModalOpen;
+        public bool IsMasterPasswordModalOpen
+        {
+            get => _isMasterPasswordModalOpen;
+            set => SetProperty(ref _isMasterPasswordModalOpen, value);
+        }
+
+        private string _masterPasswordInput;
+        public string MasterPasswordInput
+        {
+            get => _masterPasswordInput;
+            set => SetProperty(ref _masterPasswordInput, value);
+        }
+
+        private bool _masterPasswordFailed;
+        public bool MasterPasswordFailed
+        {
+            get => _masterPasswordFailed;
+            set => SetProperty(ref _masterPasswordFailed, value);
+        }
+
+        private PasswordEntry _pendingEditEntry;
+
+        // --- Comandos ---
         public ICommand OpenAddModalCommand { get; }
         public ICommand SaveNewEntryCommand { get; }
         public ICommand CancelAddCommand { get; }
@@ -69,6 +104,9 @@ namespace Sailock.ViewModels
         public ICommand DeleteEntryCommand { get; }
         public ICommand CancelEditCommand { get; }
         public ICommand CopyPasswordCommand { get; }
+        public ICommand ConfirmMasterPasswordCommand { get; }
+        public ICommand CancelMasterPasswordCommand { get; }
+        public ICommand TogglePasswordVisibilityCommand { get; }
 
         public DashboardViewModel(AppData appData, StorageService storage, string masterPassword)
         {
@@ -81,12 +119,16 @@ namespace Sailock.ViewModels
 
             OpenAddModalCommand = new RelayCommand(_ => OpenAddModal());
             SaveNewEntryCommand = new RelayCommand(_ => SaveNewEntry());
-            CancelAddCommand = new RelayCommand(_ => IsAddModalOpen = false);
+            CancelAddCommand = new RelayCommand(_ => CancelAdd());
             OpenEditModalCommand = new RelayCommand(e => OpenEditModal(e as PasswordEntry));
             SaveEditCommand = new RelayCommand(_ => SaveEdit());
             DeleteEntryCommand = new RelayCommand(_ => DeleteEntry());
-            CancelEditCommand = new RelayCommand(_ => IsEditModalOpen = false);
+            CancelEditCommand = new RelayCommand(_ => CancelEdit());
             CopyPasswordCommand = new RelayCommand(e => CopyPassword(e as PasswordEntry));
+            ConfirmMasterPasswordCommand = new RelayCommand(_ => ConfirmMasterPassword());
+            CancelMasterPasswordCommand = new RelayCommand(_ => CancelMasterPassword());
+            TogglePasswordVisibilityCommand = new RelayCommand(_ =>
+                IsPasswordVisible = !IsPasswordVisible);
         }
 
         private void ApplyFilter()
@@ -111,7 +153,16 @@ namespace Sailock.ViewModels
         private void OpenAddModal()
         {
             EditingEntry = new PasswordEntry();
+            IsPasswordVisible = false;
+            HasEditChanges = false;
             IsAddModalOpen = true;
+        }
+
+        private void CancelAdd()
+        {
+            IsAddModalOpen = false;
+            EditingEntry = null;
+            IsPasswordVisible = false;
         }
 
         private void SaveNewEntry()
@@ -123,25 +174,82 @@ namespace Sailock.ViewModels
             Persist();
             ApplyFilter();
             IsAddModalOpen = false;
+            EditingEntry = null;
         }
 
         private void OpenEditModal(PasswordEntry entry)
         {
             if (entry == null) return;
 
+            _pendingEditEntry = entry;
+            MasterPasswordInput = null;
+            MasterPasswordFailed = false;
+            IsPasswordVisible = false;
+            IsMasterPasswordModalOpen = true;
+        }
+
+        private void ConfirmMasterPassword()
+        {
+            if (MasterPasswordInput != _masterPassword)
+            {
+                MasterPasswordFailed = true;
+                return;
+            }
+
+            IsMasterPasswordModalOpen = false;
+            MasterPasswordFailed = false;
+            HasEditChanges = false;
+
             EditingEntry = new PasswordEntry
             {
-                Id = entry.Id,
-                Category = entry.Category,
-                Title = entry.Title,
-                Email = entry.Email,
-                Username = entry.Username,
-                Password = entry.Password,
-                Note = entry.Note
+                Id = _pendingEditEntry.Id,
+                Category = _pendingEditEntry.Category,
+                Title = _pendingEditEntry.Title,
+                Email = _pendingEditEntry.Email,
+                Username = _pendingEditEntry.Username,
+                Password = _pendingEditEntry.Password,
+                Note = _pendingEditEntry.Note
             };
 
-            SelectedEntry = entry;
+            // Detectar cambios en tiempo real
+            EditingEntry.PropertyChanged += (s, e) => CheckEditChanges();
+
+            SelectedEntry = _pendingEditEntry;
             IsEditModalOpen = true;
+        }
+
+        private void CheckEditChanges()
+        {
+            if (_pendingEditEntry == null || EditingEntry == null)
+            {
+                HasEditChanges = false;
+                return;
+            }
+
+            HasEditChanges =
+                EditingEntry.Title != _pendingEditEntry.Title ||
+                EditingEntry.Category != _pendingEditEntry.Category ||
+                EditingEntry.Email != _pendingEditEntry.Email ||
+                EditingEntry.Username != _pendingEditEntry.Username ||
+                EditingEntry.Password != _pendingEditEntry.Password ||
+                EditingEntry.Note != _pendingEditEntry.Note;
+        }
+
+        private void CancelMasterPassword()
+        {
+            IsMasterPasswordModalOpen = false;
+            MasterPasswordInput = null;
+            MasterPasswordFailed = false;
+            _pendingEditEntry = null;
+        }
+
+        private void CancelEdit()
+        {
+            IsEditModalOpen = false;
+            EditingEntry = null;
+            HasEditChanges = false;
+            IsPasswordVisible = false;
+            _pendingEditEntry = null;
         }
 
         private void SaveEdit()
@@ -169,6 +277,9 @@ namespace Sailock.ViewModels
             Persist();
             ApplyFilter();
             IsEditModalOpen = false;
+            EditingEntry = null;
+            HasEditChanges = false;
+            _pendingEditEntry = null;
         }
 
         private void DeleteEntry()
@@ -180,6 +291,9 @@ namespace Sailock.ViewModels
             Persist();
             ApplyFilter();
             IsEditModalOpen = false;
+            EditingEntry = null;
+            HasEditChanges = false;
+            _pendingEditEntry = null;
         }
 
         private void CopyPassword(PasswordEntry entry)

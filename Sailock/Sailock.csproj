@@ -24,6 +24,7 @@
     <None Remove="Fonts\Supermolot Light.ttf" />
     <None Remove="Resources\sailock.ico" />
     <None Remove="Resources\sailock_logo.png" />
+    <None Remove="Resources\sailock_logo_dark.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -37,6 +38,9 @@
 
   <ItemGroup>
     <Resource Include="Fonts\Supermolot Light.ttf" />
+    <Resource Include="Resources\sailock_logo_dark.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
   <ItemGroup>

@@ -67,7 +67,7 @@
                         Command="{Binding OpenAddModalCommand}"/>
             </Grid>
 
-            <!-- Cabecera de la tabla -->
+            <!-- Cabecera -->
             <Grid Grid.Row="2" Margin="0,0,0,6">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="160"/>
@@ -75,34 +75,15 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="100"/>
                 </Grid.ColumnDefinitions>
-
-                <TextBlock Grid.Column="0" Text="TITLE"
-                           Foreground="#444444"
-                           FontFamily="/Fonts/#Supermolot Light"
-                           FontSize="11" Margin="4,0,0,0"/>
-                <TextBlock Grid.Column="1" Text="DATA"
-                           Foreground="#444444"
-                           FontFamily="/Fonts/#Supermolot Light"
-                           FontSize="11"/>
-                <TextBlock Grid.Column="2" Text="VALUE"
-                           Foreground="#444444"
-                           FontFamily="/Fonts/#Supermolot Light"
-                           FontSize="11"/>
-                <TextBlock Grid.Column="3" Text="OPTIONS"
-                           Foreground="#444444"
-                           FontFamily="/Fonts/#Supermolot Light"
-                           FontSize="11"
-                           HorizontalAlignment="Right"/>
+                <TextBlock Grid.Column="0" Text="TITLE"   Foreground="#444444" FontFamily="/Fonts/#Supermolot Light" FontSize="11" Margin="4,0,0,0"/>
+                <TextBlock Grid.Column="1" Text="DATA"    Foreground="#444444" FontFamily="/Fonts/#Supermolot Light" FontSize="11"/>
+                <TextBlock Grid.Column="2" Text="VALUE"   Foreground="#444444" FontFamily="/Fonts/#Supermolot Light" FontSize="11"/>
+                <TextBlock Grid.Column="3" Text="OPTIONS" Foreground="#444444" FontFamily="/Fonts/#Supermolot Light" FontSize="11" HorizontalAlignment="Right"/>
             </Grid>
 
-            <!-- Separador -->
-            <Rectangle Grid.Row="2"
-                       Height="1"
-                       Fill="#1A1A1A"
-                       VerticalAlignment="Bottom"
-                       Margin="0,0,0,-1"/>
+            <Rectangle Grid.Row="2" Height="1" Fill="#1A1A1A" VerticalAlignment="Bottom" Margin="0,0,0,-1"/>
 
-            <!-- Lista de entradas -->
+            <!-- Lista -->
             <ScrollViewer Grid.Row="3"
                           VerticalScrollBarVisibility="Auto"
                           HorizontalScrollBarVisibility="Disabled">
@@ -117,81 +98,36 @@
                                     <ColumnDefinition Width="100"/>
                                 </Grid.ColumnDefinitions>
 
-                                <!-- Title -->
-                                <TextBlock Grid.Column="0"
-                                           Text="{Binding Title}"
-                                           Foreground="White"
-                                           FontFamily="/Fonts/#Supermolot Light"
-                                           FontSize="13"
-                                           VerticalAlignment="Center"
-                                           Margin="4,0,0,0"/>
+                                <TextBlock Grid.Column="0" Text="{Binding Title}"
+                                           Foreground="White" FontFamily="/Fonts/#Supermolot Light"
+                                           FontSize="13" VerticalAlignment="Center" Margin="4,0,0,0"/>
 
-                                <!-- Data labels -->
                                 <StackPanel Grid.Column="1" VerticalAlignment="Center">
-                                    <TextBlock Text="Email:" Foreground="#555555"
-                                               FontFamily="/Fonts/#Supermolot Light"
-                                               FontSize="11"
-                                               Visibility="{Binding Email, Converter={StaticResource NullToVisibilityConverter}}"/>
-                                    <TextBlock Text="Username:" Foreground="#555555"
-                                               FontFamily="/Fonts/#Supermolot Light"
-                                               FontSize="11"
-                                               Visibility="{Binding Username, Converter={StaticResource NullToVisibilityConverter}}"/>
-                                    <TextBlock Text="Password:" Foreground="#555555"
-                                               FontFamily="/Fonts/#Supermolot Light"
-                                               FontSize="11"/>
+                                    <TextBlock Text="Email:"    Foreground="#555555" FontFamily="/Fonts/#Supermolot Light" FontSize="11" Visibility="{Binding Email,    Converter={StaticResource NullToVisibilityConverter}}"/>
+                                    <TextBlock Text="Username:" Foreground="#555555" FontFamily="/Fonts/#Supermolot Light" FontSize="11" Visibility="{Binding Username, Converter={StaticResource NullToVisibilityConverter}}"/>
+                                    <TextBlock Text="Password:" Foreground="#555555" FontFamily="/Fonts/#Supermolot Light" FontSize="11"/>
                                 </StackPanel>
 
-                                <!-- Values -->
                                 <StackPanel Grid.Column="2" VerticalAlignment="Center">
-                                    <TextBlock Text="{Binding Email}"
-                                               Foreground="#00FF41"
-                                               FontFamily="/Fonts/#Supermolot Light"
-                                               FontSize="11"
-                                               Visibility="{Binding Email, Converter={StaticResource NullToVisibilityConverter}}"/>
-                                    <TextBlock Text="{Binding Username}"
-                                               Foreground="#00FF41"
-                                               FontFamily="/Fonts/#Supermolot Light"
-                                               FontSize="11"
-                                               Visibility="{Binding Username, Converter={StaticResource NullToVisibilityConverter}}"/>
+                                    <TextBlock Text="{Binding Email}"    Foreground="#00FF41" FontFamily="/Fonts/#Supermolot Light" FontSize="11" Visibility="{Binding Email,    Converter={StaticResource NullToVisibilityConverter}}"/>
+                                    <TextBlock Text="{Binding Username}" Foreground="#00FF41" FontFamily="/Fonts/#Supermolot Light" FontSize="11" Visibility="{Binding Username, Converter={StaticResource NullToVisibilityConverter}}"/>
                                     <StackPanel Orientation="Horizontal">
-                                        <TextBlock Text="••••••••••"
-                                                   Foreground="#00FF41"
-                                                   FontSize="11"
-                                                   VerticalAlignment="Center"
-                                                   Margin="0,0,10,0"/>
-                                        <Button Content="[copy]"
-                                                Foreground="#00ab26"
-                                                Background="Transparent"
-                                                BorderThickness="0"
-                                                FontFamily="/Fonts/#Supermolot Light"
-                                                FontSize="11"
-                                                Cursor="Hand"
-                                                Command="{Binding DataContext.CopyPasswordCommand,
-                                                          RelativeSource={RelativeSource AncestorType=ItemsControl}}"
+                                        <TextBlock Text="••••••••••" Foreground="#00FF41" FontSize="11" VerticalAlignment="Center" Margin="0,0,10,0"/>
+                                        <Button Content="[copy]" Foreground="#00ab26" Background="Transparent" BorderThickness="0"
+                                                FontFamily="/Fonts/#Supermolot Light" FontSize="11" Cursor="Hand"
+                                                Command="{Binding DataContext.CopyPasswordCommand, RelativeSource={RelativeSource AncestorType=ItemsControl}}"
                                                 CommandParameter="{Binding}"/>
                                     </StackPanel>
                                 </StackPanel>
 
-                                <!-- Edit -->
-                                <Button Grid.Column="3"
-                                        Content="[ EDIT ]"
-                                        Foreground="#00FF41"
-                                        Background="Transparent"
-                                        BorderThickness="0"
-                                        FontFamily="/Fonts/#Supermolot Light"
-                                        FontSize="12"
-                                        Cursor="Hand"
-                                        HorizontalAlignment="Right"
-                                        VerticalAlignment="Center"
-                                        Command="{Binding DataContext.OpenEditModalCommand,
-                                                  RelativeSource={RelativeSource AncestorType=ItemsControl}}"
+                                <Button Grid.Column="3" Content="[ EDIT ]"
+                                        Foreground="#00FF41" Background="Transparent" BorderThickness="0"
+                                        FontFamily="/Fonts/#Supermolot Light" FontSize="12" Cursor="Hand"
+                                        HorizontalAlignment="Right" VerticalAlignment="Center"
+                                        Command="{Binding DataContext.OpenEditModalCommand, RelativeSource={RelativeSource AncestorType=ItemsControl}}"
                                         CommandParameter="{Binding}"/>
 
-                                <!-- Separador inferior -->
-                                <Rectangle Grid.ColumnSpan="4"
-                                           Height="1"
-                                           Fill="#111111"
-                                           VerticalAlignment="Bottom"/>
+                                <Rectangle Grid.ColumnSpan="4" Height="1" Fill="#111111" VerticalAlignment="Bottom"/>
                             </Grid>
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
@@ -199,58 +135,114 @@
             </ScrollViewer>
         </Grid>
 
-        <!-- Modal Add New -->
+        <!-- ═══════════════════════ MODAL ADD NEW ═══════════════════════ -->
         <Grid Visibility="{Binding IsAddModalOpen, Converter={StaticResource BoolToVisibilityConverter}}">
             <Rectangle Fill="#000000" Opacity="0.7"/>
-            <Border Background="#111111"
-                    BorderBrush="#00ab26"
-                    BorderThickness="1"
-                    Width="460"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Center"
-                    Padding="36,30">
+            <Border Background="#111111" BorderBrush="#00ab26" BorderThickness="1"
+                    Width="460" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="36,30">
                 <StackPanel>
-                    <TextBlock Text="ADD NEW"
-                               Foreground="White"
-                               FontFamily="/Fonts/#Supermolot Light"
-                               FontSize="22"
-                               HorizontalAlignment="Center"
-                               Margin="0,0,0,20"/>
+                    <TextBlock Text="ADD NEW" Foreground="White" FontFamily="/Fonts/#Supermolot Light"
+                               FontSize="22" HorizontalAlignment="Center" Margin="0,0,0,20"/>
 
                     <TextBlock Text="TITLE" Style="{StaticResource ModalLabel}"/>
                     <TextBox Text="{Binding EditingEntry.Title, UpdateSourceTrigger=PropertyChanged}"
-                             Style="{StaticResource ModalTextBox}"
-                             Margin="0,4,0,12"/>
+                             Style="{StaticResource ModalTextBox}" Margin="0,4,0,12"/>
 
                     <TextBlock Text="CATEGORY" Style="{StaticResource ModalLabel}"/>
                     <TextBox Text="{Binding EditingEntry.Category, UpdateSourceTrigger=PropertyChanged}"
-                             Style="{StaticResource ModalTextBox}"
-                             Margin="0,4,0,12"/>
+                             Style="{StaticResource ModalTextBox}" Margin="0,4,0,12"/>
 
                     <TextBlock Text="EMAIL" Style="{StaticResource ModalLabel}"/>
                     <TextBox Text="{Binding EditingEntry.Email, UpdateSourceTrigger=PropertyChanged}"
-                             Style="{StaticResource ModalTextBox}"
-                             Margin="0,4,0,12"/>
+                             Style="{StaticResource ModalTextBox}" Margin="0,4,0,12"/>
 
                     <TextBlock Text="USERNAME" Style="{StaticResource ModalLabel}"/>
                     <TextBox Text="{Binding EditingEntry.Username, UpdateSourceTrigger=PropertyChanged}"
-                             Style="{StaticResource ModalTextBox}"
-                             Margin="0,4,0,12"/>
+                             Style="{StaticResource ModalTextBox}" Margin="0,4,0,12"/>
 
                     <TextBlock Text="PASSWORD" Style="{StaticResource ModalLabel}"/>
-                    <TextBox Text="{Binding EditingEntry.Password, UpdateSourceTrigger=PropertyChanged}"
-                             Style="{StaticResource ModalTextBox}"
-                             Margin="0,4,0,12"/>
+                    <Grid Margin="0,4,0,12">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="36"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBox Grid.Column="0"
+                                 Text="{Binding EditingEntry.Password, UpdateSourceTrigger=PropertyChanged}"
+                                 Background="#0D0D0D" Foreground="White" CaretBrush="#00FF41"
+                                 BorderBrush="#333333" BorderThickness="1" Height="34"
+                                 FontFamily="/Fonts/#Supermolot Light" FontSize="12"
+                                 Padding="10,0" VerticalContentAlignment="Center">
+                            <TextBox.Style>
+                                <Style TargetType="TextBox">
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="TextBox">
+                                                <Border Background="{TemplateBinding Background}"
+                                                        BorderBrush="{TemplateBinding BorderBrush}"
+                                                        BorderThickness="{TemplateBinding BorderThickness}">
+                                                    <ScrollViewer x:Name="PART_ContentHost"
+                                                                  VerticalAlignment="Center"
+                                                                  Margin="{TemplateBinding Padding}"/>
+                                                </Border>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding IsPasswordVisible}" Value="True">
+                                            <Setter Property="Visibility" Value="Visible"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBox.Style>
+                        </TextBox>
+
+                        <PasswordBox x:Name="AddPasswordBox"
+                                     Grid.Column="0"
+                                     PasswordChanged="EditPasswordBox_PasswordChanged"
+                                     Background="#0D0D0D" Foreground="#00FF41" CaretBrush="#00FF41"
+                                     BorderBrush="#333333" BorderThickness="1" Height="34"
+                                     FontFamily="/Fonts/#Supermolot Light" FontSize="14">
+                            <PasswordBox.Style>
+                                <Style TargetType="PasswordBox">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="PasswordBox">
+                                                <Border Background="{TemplateBinding Background}"
+                                                        BorderBrush="{TemplateBinding BorderBrush}"
+                                                        BorderThickness="{TemplateBinding BorderThickness}">
+                                                    <ScrollViewer x:Name="PART_ContentHost"
+                                                                  HorizontalAlignment="Center"
+                                                                  VerticalAlignment="Center"
+                                                                  Margin="10,0"/>
+                                                </Border>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding IsPasswordVisible}" Value="True">
+                                            <Setter Property="Visibility" Value="Collapsed"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </PasswordBox.Style>
+                        </PasswordBox>
+
+                        <Button Grid.Column="1" Content="👁" Background="Transparent" BorderThickness="0"
+                                Foreground="#444444" FontSize="14" Cursor="Hand"
+                                VerticalAlignment="Center" HorizontalAlignment="Center"
+                                Command="{Binding TogglePasswordVisibilityCommand}"/>
+                    </Grid>
 
                     <TextBlock Text="NOTE" Style="{StaticResource ModalLabel}"/>
                     <TextBox Text="{Binding EditingEntry.Note, UpdateSourceTrigger=PropertyChanged}"
-                             Style="{StaticResource ModalTextBox}"
-                             Height="80"
-                             TextWrapping="Wrap"
-                             AcceptsReturn="True"
-                             VerticalContentAlignment="Top"
-                             Margin="0,4,0,24"/>
+                             Style="{StaticResource ModalTextBox}" Height="80"
+                             TextWrapping="Wrap" AcceptsReturn="True"
+                             VerticalContentAlignment="Top" Margin="0,4,0,24"/>
 
+                    <!-- Add New: solo SAVE y CANCEL -->
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                         <Button Content="SAVE"
                                 Width="120"
@@ -266,68 +258,166 @@
             </Border>
         </Grid>
 
-        <!-- Modal Edit -->
+        <!-- ═══════════════════════ MODAL EDIT ═══════════════════════ -->
         <Grid Visibility="{Binding IsEditModalOpen, Converter={StaticResource BoolToVisibilityConverter}}">
             <Rectangle Fill="#000000" Opacity="0.7"/>
-            <Border Background="#111111"
-                    BorderBrush="#00ab26"
-                    BorderThickness="1"
-                    Width="460"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Center"
-                    Padding="36,30">
+            <Border Background="#111111" BorderBrush="#00ab26" BorderThickness="1"
+                    Width="460" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="36,30">
                 <StackPanel>
-                    <TextBlock Text="EDIT"
-                               Foreground="White"
-                               FontFamily="/Fonts/#Supermolot Light"
-                               FontSize="22"
-                               HorizontalAlignment="Center"
-                               Margin="0,0,0,20"/>
+                    <TextBlock Text="EDIT" Foreground="White" FontFamily="/Fonts/#Supermolot Light"
+                               FontSize="22" HorizontalAlignment="Center" Margin="0,0,0,20"/>
 
                     <TextBlock Text="TITLE" Style="{StaticResource ModalLabel}"/>
                     <TextBox Text="{Binding EditingEntry.Title, UpdateSourceTrigger=PropertyChanged}"
-                             Style="{StaticResource ModalTextBox}"
-                             Margin="0,4,0,12"/>
+                             Style="{StaticResource ModalTextBox}" Margin="0,4,0,12"/>
 
                     <TextBlock Text="CATEGORY" Style="{StaticResource ModalLabel}"/>
                     <TextBox Text="{Binding EditingEntry.Category, UpdateSourceTrigger=PropertyChanged}"
-                             Style="{StaticResource ModalTextBox}"
-                             Margin="0,4,0,12"/>
+                             Style="{StaticResource ModalTextBox}" Margin="0,4,0,12"/>
 
                     <TextBlock Text="EMAIL" Style="{StaticResource ModalLabel}"/>
                     <TextBox Text="{Binding EditingEntry.Email, UpdateSourceTrigger=PropertyChanged}"
-                             Style="{StaticResource ModalTextBox}"
-                             Margin="0,4,0,12"/>
+                             Style="{StaticResource ModalTextBox}" Margin="0,4,0,12"/>
 
                     <TextBlock Text="USERNAME" Style="{StaticResource ModalLabel}"/>
                     <TextBox Text="{Binding EditingEntry.Username, UpdateSourceTrigger=PropertyChanged}"
-                             Style="{StaticResource ModalTextBox}"
-                             Margin="0,4,0,12"/>
+                             Style="{StaticResource ModalTextBox}" Margin="0,4,0,12"/>
 
                     <TextBlock Text="PASSWORD" Style="{StaticResource ModalLabel}"/>
-                    <TextBox Text="{Binding EditingEntry.Password, UpdateSourceTrigger=PropertyChanged}"
-                             Style="{StaticResource ModalTextBox}"
-                             Margin="0,4,0,12"/>
+                    <Grid Margin="0,4,0,12">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="36"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBox Grid.Column="0"
+                                 Text="{Binding EditingEntry.Password, UpdateSourceTrigger=PropertyChanged}"
+                                 Background="#0D0D0D" Foreground="White" CaretBrush="#00FF41"
+                                 BorderBrush="#333333" BorderThickness="1" Height="34"
+                                 FontFamily="/Fonts/#Supermolot Light" FontSize="12"
+                                 Padding="10,0" VerticalContentAlignment="Center">
+                            <TextBox.Style>
+                                <Style TargetType="TextBox">
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="TextBox">
+                                                <Border Background="{TemplateBinding Background}"
+                                                        BorderBrush="{TemplateBinding BorderBrush}"
+                                                        BorderThickness="{TemplateBinding BorderThickness}">
+                                                    <ScrollViewer x:Name="PART_ContentHost"
+                                                                  VerticalAlignment="Center"
+                                                                  Margin="{TemplateBinding Padding}"/>
+                                                </Border>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding IsPasswordVisible}" Value="True">
+                                            <Setter Property="Visibility" Value="Visible"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBox.Style>
+                        </TextBox>
+
+                        <PasswordBox x:Name="EditPasswordBoxModal"
+                                     Grid.Column="0"
+                                     PasswordChanged="EditPasswordBox_PasswordChanged"
+                                     Background="#0D0D0D" Foreground="#00FF41" CaretBrush="#00FF41"
+                                     BorderBrush="#333333" BorderThickness="1" Height="34"
+                                     FontFamily="/Fonts/#Supermolot Light" FontSize="14">
+                            <PasswordBox.Style>
+                                <Style TargetType="PasswordBox">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="PasswordBox">
+                                                <Border Background="{TemplateBinding Background}"
+                                                        BorderBrush="{TemplateBinding BorderBrush}"
+                                                        BorderThickness="{TemplateBinding BorderThickness}">
+                                                    <ScrollViewer x:Name="PART_ContentHost"
+                                                                  HorizontalAlignment="Center"
+                                                                  VerticalAlignment="Center"
+                                                                  Margin="10,0"/>
+                                                </Border>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding IsPasswordVisible}" Value="True">
+                                            <Setter Property="Visibility" Value="Collapsed"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </PasswordBox.Style>
+                        </PasswordBox>
+
+                        <Button Grid.Column="1" Content="👁" Background="Transparent" BorderThickness="0"
+                                Foreground="#444444" FontSize="14" Cursor="Hand"
+                                VerticalAlignment="Center" HorizontalAlignment="Center"
+                                Command="{Binding TogglePasswordVisibilityCommand}"/>
+                    </Grid>
 
                     <TextBlock Text="NOTE" Style="{StaticResource ModalLabel}"/>
                     <TextBox Text="{Binding EditingEntry.Note, UpdateSourceTrigger=PropertyChanged}"
-                             Style="{StaticResource ModalTextBox}"
-                             Height="80"
-                             TextWrapping="Wrap"
-                             AcceptsReturn="True"
-                             VerticalContentAlignment="Top"
-                             Margin="0,4,0,24"/>
+                             Style="{StaticResource ModalTextBox}" Height="80"
+                             TextWrapping="Wrap" AcceptsReturn="True"
+                             VerticalContentAlignment="Top" Margin="0,4,0,24"/>
 
+                    <!-- Edit: SAVE solo si hay cambios, DELETE y CANCEL siempre -->
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <Button Content="SAVE"
+                                Width="110"
+                                Style="{StaticResource SailockButton}"
+                                Command="{Binding SaveEditCommand}"
+                                Margin="0,0,12,0"
+                                Visibility="{Binding HasEditChanges,
+                                             Converter={StaticResource BoolToVisibilityConverter}}"/>
                         <Button Content="DELETE"
-                                Width="120"
+                                Width="110"
                                 Style="{StaticResource SailockButton_Danger}"
                                 Command="{Binding DeleteEntryCommand}"
-                                Margin="0,0,16,0"/>
+                                Margin="0,0,12,0"/>
                         <Button Content="CANCEL"
-                                Width="120"
+                                Width="110"
                                 Style="{StaticResource SailockButton}"
                                 Command="{Binding CancelEditCommand}"/>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+        </Grid>
+
+        <!-- ═══════════════════════ MODAL VERIFICAR MASTER PASSWORD ═══════════════════════ -->
+        <Grid Visibility="{Binding IsMasterPasswordModalOpen, Converter={StaticResource BoolToVisibilityConverter}}">
+            <Rectangle Fill="#000000" Opacity="0.75"/>
+            <Border Background="#111111" BorderBrush="#00ab26" BorderThickness="1"
+                    Width="380" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="36,30">
+                <StackPanel>
+                    <TextBlock Text="VERIFICAR IDENTIDAD" Foreground="White"
+                               FontFamily="/Fonts/#Supermolot Light" FontSize="20"
+                               HorizontalAlignment="Center" Margin="0,0,0,8"/>
+                    <TextBlock Text="Introduce tu contraseña maestra para editar"
+                               Foreground="#666666" FontFamily="/Fonts/#Supermolot Light"
+                               FontSize="11" HorizontalAlignment="Center" Margin="0,0,0,20"/>
+
+                    <PasswordBox x:Name="MasterPasswordVerify"
+                                 Style="{StaticResource CenteredPasswordBox}"
+                                 PasswordChanged="MasterPasswordVerify_PasswordChanged"
+                                 KeyDown="MasterPasswordVerify_KeyDown"
+                                 Margin="0,0,0,8"/>
+
+                    <TextBlock Text="Contraseña incorrecta" Foreground="#FF4D4D"
+                               FontFamily="/Fonts/#Supermolot Light" FontSize="11"
+                               HorizontalAlignment="Center" Margin="0,0,0,16"
+                               Visibility="{Binding MasterPasswordFailed,
+                                            Converter={StaticResource BoolToVisibilityConverter}}"/>
+
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <Button Content="CONFIRMAR" Width="130" Style="{StaticResource SailockButton}"
+                                Command="{Binding ConfirmMasterPasswordCommand}" Margin="0,0,16,0"/>
+                        <Button Content="CANCELAR"  Width="130" Style="{StaticResource SailockButton}"
+                                Command="{Binding CancelMasterPasswordCommand}"/>
                     </StackPanel>
                 </StackPanel>
             </Border>

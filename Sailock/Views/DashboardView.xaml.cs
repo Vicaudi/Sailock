@@ -1,17 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
+﻿using System.Windows.Controls;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using Sailock.ViewModels;
 
 namespace Sailock.Views
 {
@@ -20,6 +9,24 @@ namespace Sailock.Views
         public DashboardView()
         {
             InitializeComponent();
+        }
+
+        private void MasterPasswordVerify_PasswordChanged(object sender, System.Windows.RoutedEventArgs e)
+        {
+            if (DataContext is DashboardViewModel vm)
+                vm.MasterPasswordInput = ((PasswordBox)sender).Password;
+        }
+
+        private void MasterPasswordVerify_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter && DataContext is DashboardViewModel vm)
+                vm.ConfirmMasterPasswordCommand.Execute(null);
+        }
+
+        private void EditPasswordBox_PasswordChanged(object sender, System.Windows.RoutedEventArgs e)
+        {
+            if (DataContext is DashboardViewModel vm && vm.EditingEntry != null)
+                vm.EditingEntry.Password = ((PasswordBox)sender).Password;
         }
     }
 }

@@ -1,0 +1,108 @@
+﻿# Changelog — Sailock
+
+Todos los cambios de Sailock se documentan aquí.
+
+---
+
+## [Unreleased]
+
+### Added
+* Se ha añadido confirmación antes de cerrar la aplicación si hay cambios sin guardar
+* Mejoras generales de estabilidad en la interfaz
+
+---
+
+## [1.1.3] - 2026-05-30
+
+### Added
+* Se ha añadido verificación en dos pasos (2FA) para mayor seguridad al iniciar sesión
+* Ahora puedes confirmar la desactivación del 2FA con un mensaje de seguridad
+* Se solicita confirmación de contraseña antes de editar cualquier contraseña guardada
+* Se ha añadido opción para mostrar u ocultar contraseñas en las ventanas de edición
+* Ahora puedes cambiar el tamaño de la interfaz (pequeño, normal o grande)
+* Se ha añadido modo claro además del modo oscuro
+* Ahora puedes ajustar el contraste visual de la aplicación para mejorar la lectura
+* La ventana de añadir nueva contraseña ahora es más simple y rápida de usar
+* La ventana de edición muestra solo las opciones necesarias según los cambios realizados
+
+### Changed
+* Se ha mejorado la experiencia general de edición de contraseñas
+* Se ha optimizado la visualización de elementos en toda la aplicación
+
+### Fixed
+* Se ha corregido un problema donde la ventana de añadir contraseña no se cerraba correctamente
+* Se ha solucionado la duplicación del logo en la barra lateral
+* El campo de código de verificación ahora se muestra correctamente centrado
+* Se ha eliminado una línea visual innecesaria en la parte superior de la aplicación
+* Se ha mejorado la carga del logotipo en toda la interfaz
+
+---
+
+## [1.1.2] - 2026-05-28
+
+### Added
+* Ahora puedes importar tus datos desde un archivo de copia de seguridad
+* Ahora puedes exportar tus datos de forma segura en un archivo .slock
+* Se ha añadido la opción de borrar todos los datos de la aplicación
+* Se ha añadido bloqueo automático de la aplicación tras un periodo de inactividad
+* Mensajes de confirmación al importar o exportar datos
+
+### Fixed
+* Se ha corregido un problema que impedía cargar correctamente los datos importados
+* Se ha solucionado un error al exportar datos en algunos casos
+
+---
+
+## [1.1.1] - 2026-05-27
+
+### Added
+* Nueva pantalla de ajustes con todas las opciones principales:
+  * Seguridad (2FA, cambio de contraseña, bloqueo automático)
+  * Apariencia (tema claro/oscuro, contraste, tamaño de texto)
+  * Gestión de datos (importar y exportar)
+  * Zona de seguridad (borrado completo con confirmación)
+* Ahora la aplicación puede cambiar entre tema claro y oscuro
+* Se ha añadido soporte para ajustar el tamaño de la interfaz
+* Se ha preparado el sistema para futuras mejoras visuales
+
+### Changed
+* Se ha mejorado la forma en que la aplicación guarda la información de forma más estable
+* El inicio de sesión ahora utiliza la contraseña real del usuario
+* La primera vez que se abre la aplicación, el usuario puede crear su contraseña maestra de forma guiada
+
+### Fixed
+* Se han corregido problemas de estabilidad al guardar información
+* Se han solucionado errores en la navegación entre pantallas
+
+---
+
+## [1.0.2] - 2026-05-25
+
+### Added
+* Panel principal donde puedes ver todas tus contraseñas guardadas
+* Ventana para añadir nuevas contraseñas de forma sencilla
+* Ventana para editar y eliminar contraseñas existentes
+* Generador de contraseñas con opciones de personalización
+* Navegación entre secciones (inicio, generador y ajustes)
+* Botones personalizados de ventana (minimizar, maximizar y cerrar)
+* Diseño base completo de la aplicación
+* Número de versión visible dentro de la aplicación
+
+### Changed
+* Se ha mejorado la navegación entre secciones para hacerla más fluida
+* Se ha reforzado la estabilidad general de la aplicación
+
+### Fixed
+* Se ha corregido el sistema de inicio de sesión
+* Se han solucionado problemas en la respuesta de botones y elementos de la interfaz
+
+---
+
+## [1.0.0] - 2026-05-23
+
+### Added
+* Pantalla de inicio de sesión
+* Estructura inicial de la aplicación
+* Diseño base de todas las pantallas principales
+* Sistema de navegación entre secciones
+* Logotipo y estilo visual inicial

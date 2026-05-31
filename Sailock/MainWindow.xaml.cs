@@ -1,13 +1,6 @@
-﻿using System.Text;
+﻿using System;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using Sailock.ViewModels;
 
 namespace Sailock
@@ -19,13 +12,23 @@ namespace Sailock
             InitializeComponent();
         }
 
-        // Permite arrastrar la ventana desde la TopBar
+        // Registrar cualquier movimiento de ratón o tecla como actividad
+        protected override void OnPreviewMouseMove(MouseEventArgs e)
+        {
+            base.OnPreviewMouseMove(e);
+            (DataContext as MainViewModel)?.RegisterActivity();
+        }
+
+        protected override void OnPreviewKeyDown(KeyEventArgs e)
+        {
+            base.OnPreviewKeyDown(e);
+            (DataContext as MainViewModel)?.RegisterActivity();
+        }
+
         private void TopBar_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             if (e.ButtonState == MouseButtonState.Pressed)
-            {
                 DragMove();
-            }
         }
 
         private void BtnMinimize_Click(object sender, RoutedEventArgs e)

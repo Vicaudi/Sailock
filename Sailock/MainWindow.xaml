@@ -4,7 +4,10 @@
         xmlns:vm="clr-namespace:Sailock.ViewModels"
         Icon="/Resources/sailock.ico"
         WindowStyle="None"
+        AllowsTransparency="False"
         ResizeMode="CanResize"
+        BorderThickness="0"
+        BorderBrush="Transparent"
         Background="#000000"
         Title="Sailock"
         Height="720"
@@ -58,14 +61,14 @@
             </StackPanel>
         </Grid>
 
-        <!-- Área principal: Sidebar + Contenido -->
+        <!-- Área principal -->
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <!-- Sidebar: visible solo cuando NO es LoginViewModel -->
+            <!-- Sidebar -->
             <Border Grid.Column="0"
                     Width="220"
                     Background="#0A0A0A"
@@ -82,27 +85,21 @@
 
                     <!-- Logo -->
                     <Image Grid.Row="0"
-                           Source="/Sailock;component/Resources/sailock_logo.png"
                            Height="55"
-                           Margin="30,28,30,32"/>
+                           Margin="30,28,30,32"
+                           Source="{Binding LogoSource}"/>
 
                     <!-- Navegación -->
-                    <StackPanel Grid.Row="1"
-                                VerticalAlignment="Top"
-                                Margin="0,0,0,0">
-
+                    <StackPanel Grid.Row="1" VerticalAlignment="Top">
                         <Button Content="DASHBOARD"
                                 Style="{StaticResource SidebarButton}"
                                 Command="{Binding NavigateDashboardCommand}"/>
-
                         <Button Content="GENERATOR"
                                 Style="{StaticResource SidebarButton}"
                                 Command="{Binding NavigateGeneratorCommand}"/>
-
                         <Button Content="SETTINGS"
                                 Style="{StaticResource SidebarButton}"
                                 Command="{Binding NavigateSettingsCommand}"/>
-
                     </StackPanel>
 
                     <!-- Logout + versión -->
@@ -111,19 +108,36 @@
                                 Style="{StaticResource SailockButton}"
                                 Command="{Binding LogoutCommand}"
                                 Margin="0,0,0,10"/>
-                        <TextBlock Text="v1.0.2"
-                                   Foreground="#333333"
-                                   FontSize="10"
-                                   FontFamily="/Fonts/#Supermolot Light"
-                                   HorizontalAlignment="Center"/>
+                        <!-- En sidebar (MainWindow.xaml) -->
+                        <Button Content="v1.1.3"
+                                Background="Transparent"
+                                BorderThickness="0"
+                                Foreground="{DynamicResource AppForegroundSubtle}"
+                                FontSize="10"
+                                FontFamily="/Fonts/#Supermolot Light"
+                                HorizontalAlignment="Center"
+                                Cursor="Hand"
+                                Height="Auto"
+                                Padding="0"
+                                Command="{Binding ShowChangelogCommand}">
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
                     </StackPanel>
-
                 </Grid>
             </Border>
 
-            <!-- Contenido de la vista actual -->
+            <!-- Contenido con escala -->
             <ContentControl Grid.Column="1"
-                            Content="{Binding CurrentView}"/>
+                            Content="{Binding CurrentView}">
+                <ContentControl.LayoutTransform>
+                    <ScaleTransform ScaleX="{DynamicResource GlobalScale}"
+                                    ScaleY="{DynamicResource GlobalScale}"/>
+                </ContentControl.LayoutTransform>
+            </ContentControl>
         </Grid>
     </Grid>
 </Window>

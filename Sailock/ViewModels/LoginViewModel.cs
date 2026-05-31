@@ -50,7 +50,7 @@ namespace Sailock.ViewModels
         private AppData _loadedData;
 
         public Action<string, AppData> OnLoginSuccess { get; set; }
-
+        public System.Windows.Input.ICommand ShowChangelogCommand { get; set; }
         public ICommand LoginCommand { get; }
         public ICommand VerifyTotpCommand { get; }
 

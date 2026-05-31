@@ -23,14 +23,25 @@ namespace Sailock.ViewModels
         public bool AutoLockEnabled
         {
             get => _autoLockEnabled;
-            set { SetProperty(ref _autoLockEnabled, value); PersistSettings(); }
+            set
+            {
+                SetProperty(ref _autoLockEnabled, value);
+                OnAutoLockChanged?.Invoke(value);
+                PersistSettings();
+            }
         }
 
         private bool _isDarkTheme;
         public bool IsDarkTheme
         {
             get => _isDarkTheme;
-            set { SetProperty(ref _isDarkTheme, value); PersistSettings(); }
+            set
+            {
+                SetProperty(ref _isDarkTheme, value);
+                ThemeService.ApplyTheme(value);
+                OnThemeChanged?.Invoke(value);
+                PersistSettings();
+            }
         }
 
         private bool _isHighContrast;
@@ -56,7 +67,12 @@ namespace Sailock.ViewModels
         public string SelectedTextSize
         {
             get => _selectedTextSize;
-            set { SetProperty(ref _selectedTextSize, value); PersistSettings(); }
+            set
+            {
+                SetProperty(ref _selectedTextSize, value);
+                ThemeService.ApplyTextSize(value);
+                PersistSettings();
+            }
         }
 
         private bool _isDeleteModalOpen;
@@ -66,6 +82,13 @@ namespace Sailock.ViewModels
             set => SetProperty(ref _isDeleteModalOpen, value);
         }
 
+        private bool _isDisable2FAModalOpen;
+        public bool IsDisable2FAModalOpen
+        {
+            get => _isDisable2FAModalOpen;
+            set => SetProperty(ref _isDisable2FAModalOpen, value);
+        }
+
         private string _statusMessage;
         public string StatusMessage
         {
@@ -73,7 +96,6 @@ namespace Sailock.ViewModels
             set => SetProperty(ref _statusMessage, value);
         }
 
-        // Callbacks hacia MainViewModel
         public Action OnDataImported { get; set; }
         public Action<SetupTotpViewModel> OnOpen2FASetup { get; set; }
 
@@ -85,6 +107,8 @@ namespace Sailock.ViewModels
         public ICommand OpenDeleteModalCommand { get; }
         public ICommand ConfirmDeleteCommand { get; }
         public ICommand CancelDeleteCommand { get; }
+        public ICommand ConfirmDisable2FACommand { get; }
+        public ICommand CancelDisable2FACommand { get; }
 
         public SettingsViewModel(AppData appData, StorageService storage, string masterPassword)
         {
@@ -92,7 +116,6 @@ namespace Sailock.ViewModels
             _storage = storage;
             _masterPassword = masterPassword;
 
-            // Cargar valores desde AppData
             _is2FAEnabled = _appData.Settings.Is2FAEnabled;
             _autoLockEnabled = _appData.Settings.AutoLockEnabled;
             _isDarkTheme = _appData.Settings.IsDarkTheme;
@@ -100,22 +123,29 @@ namespace Sailock.ViewModels
             _selectedLanguage = _appData.Settings.Language;
             _selectedTextSize = _appData.Settings.TextSize;
 
-            // Aplicar contraste guardado al arrancar
+            ThemeService.ApplyTheme(_isDarkTheme);
             ThemeService.ApplyContrast(_isHighContrast);
+            ThemeService.ApplyTextSize(_selectedTextSize);
+
+            ConfirmDisable2FACommand = new RelayCommand(_ =>
+            {
+                Is2FAEnabled = false;
+                _appData.Settings.Is2FAEnabled = false;
+                _appData.Settings.TotpSecret = null;
+                IsDisable2FAModalOpen = false;
+                PersistSettings();
+            });
+
+            CancelDisable2FACommand = new RelayCommand(_ => IsDisable2FAModalOpen = false);
 
             Enable2FACommand = new RelayCommand(_ =>
             {
                 if (Is2FAEnabled)
                 {
-                    // Desactivar 2FA
-                    Is2FAEnabled = false;
-                    _appData.Settings.Is2FAEnabled = false;
-                    _appData.Settings.TotpSecret = null;
-                    PersistSettings();
+                    IsDisable2FAModalOpen = true;
                 }
                 else
                 {
-                    // Abrir flujo de activación
                     var setupVM = new SetupTotpViewModel(_appData, _storage, _masterPassword);
                     setupVM.OnSetupComplete = () =>
                     {
@@ -136,10 +166,7 @@ namespace Sailock.ViewModels
             CancelDeleteCommand = new RelayCommand(_ => IsDeleteModalOpen = false);
         }
 
-        private void ChangeMasterPassword()
-        {
-            // Implementación futura
-        }
+        private void ChangeMasterPassword() { }
 
         private void Import()
         {
@@ -198,5 +225,9 @@ namespace Sailock.ViewModels
             _appData.Settings.TextSize = _selectedTextSize;
             _storage.Save(_appData, _masterPassword);
         }
+
+        public Action<bool> OnThemeChanged { get; set; }
+
+        public Action<bool> OnAutoLockChanged { get; set; }
     }
 }

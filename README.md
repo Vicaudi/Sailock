@@ -92,7 +92,7 @@ See [CHANGELOG.md](CHANGELOG.md) for the full version history.
 
 ## License
 
-This project is currently unlicensed. All rights reserved by the author.
+This project is currently unlicensed. All rights reserved.
 
 ---
 

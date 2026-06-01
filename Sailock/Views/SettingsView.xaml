@@ -252,12 +252,10 @@
                                            Margin="0,3,0,0"/>
                             </StackPanel>
                             <ComboBox Grid.Column="1"
-                                      SelectedItem="{Binding SelectedLanguage}"
+                                      SelectedItem="{Binding SelectedLanguage, Mode=TwoWay}"
                                       Width="160"
-                                      Style="{StaticResource SailockComboBox}">
-                                <ComboBoxItem Content="English"/>
-                                <ComboBoxItem Content="Español"/>
-                            </ComboBox>
+                                      Style="{StaticResource SailockComboBox}"
+                                      ItemsSource="{x:Static local:SettingsView.LanguageOptions}"/>
                         </Grid>
 
                     </StackPanel>

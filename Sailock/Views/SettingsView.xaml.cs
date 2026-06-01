@@ -9,7 +9,7 @@ namespace Sailock.Views
             new List<string> { "Small", "Default", "Large" };
 
         public static List<string> LanguageOptions { get; } =
-            new List<string> { "English", "Español", "Français", "Deutsch" };
+            new List<string> { "English", "Español" };
 
         public string SelectedTextSize { get; set; } = "Default";
 

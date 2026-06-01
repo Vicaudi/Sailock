@@ -9,9 +9,31 @@ namespace Sailock.Services
         {
             new ChangelogEntry
             {
+                Version  = "1.2.0",
+                Date     = "2026-06-01",
+                IsLatest = true,
+                Added = new List<string>
+                {
+                    "Añadido soporte para los idiomas español e inglés",
+                    "La selección de idioma ya está disponible en Ajustes y se guarda automáticamente",
+                    "Todas las vistas, diálogos y mensajes del sistema han sido traducidos"
+                },
+                Changed = new List<string>
+                {
+                    "Mejorada la apariencia de las barras de desplazamiento en el Registro de cambios",
+                    "Actualizado el estilo del botón de versión para una mayor coherencia visual"
+                },
+                Fixed = new List<string>
+                {
+                    "Corregido un problema que podía impedir que algunos elementos de la interfaz se cargaran correctamente",
+                    "Mejorado el sistema de traducciones para garantizar la carga correcta de todos los idiomas"
+                }
+            },
+            new ChangelogEntry
+            {
                 Version = "1.1.3",
                 Date    = "2026-05-30",
-                IsLatest = true,
+                IsLatest = false,
                 Added   = new List<string>
                 {
                     "Auto-Lock de sesión funcional: cierre automático tras 5 minutos de inactividad",

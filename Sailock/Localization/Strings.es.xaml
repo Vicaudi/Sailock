@@ -17,10 +17,10 @@
     <sys:String x:Key="Login_TotpVerify">VERIFICAR</sys:String>
 
     <!-- ── DashboardView ── -->
-    <sys:String x:Key="Dashboard_Title">PANEL</sys:String>
+    <sys:String x:Key="Dashboard_Title">PANE CENTRAL</sys:String>
     <sys:String x:Key="Dashboard_AddNew">AÑADIR</sys:String>
     <sys:String x:Key="Dashboard_ColTitle">TÍTULO</sys:String>
-    <sys:String x:Key="Dashboard_ColData">DATO</sys:String>
+    <sys:String x:Key="Dashboard_ColData">DATOS</sys:String>
     <sys:String x:Key="Dashboard_ColValue">VALOR</sys:String>
     <sys:String x:Key="Dashboard_ColOptions">OPCIONES</sys:String>
     <sys:String x:Key="Dashboard_FieldEmail">Email:</sys:String>

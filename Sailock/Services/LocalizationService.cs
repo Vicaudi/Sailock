@@ -11,7 +11,7 @@ namespace Sailock.Services
             string fileName = language switch
             {
                 "Español" => "Strings.es.xaml",
-                _ => "Strings.en.xaml"
+                _         => "Strings.en.xaml"
             };
 
             var uri = new System.Uri(BaseUri + fileName, System.UriKind.Absolute);

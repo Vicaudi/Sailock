@@ -4,11 +4,20 @@ Todos los cambios de Sailock se documentan aquí.
 
 ---
 
-## [Unreleased]
+## [1.2.0] - 2026-06-01
 
 ### Added
-* Se ha añadido confirmación antes de cerrar la aplicación si hay cambios sin guardar
-* Mejoras generales de estabilidad en la interfaz
+* Añadido soporte completo a la aplicación para: Inglés y Español
+* La selección de idioma ya está disponible en Ajustes y se guarda entre sesiones
+* Todas las vistas, ventanas modales y mensajes del sistema han sido traducidos completamente
+
+### Changed
+* Mejorado el estilo de las barras de desplazamiento en la vista de Historial de cambio
+* El botón de versión de la barra lateral ahora utiliza un estilo coherente con la pantalla de inicio de sesión
+
+### Fixed
+* Corregido un problema que impedía mostrar correctamente algunos textos de la interfaz.
+* Corregido un problema con el sistema de idiomas que podía impedir que ciertas traducciones se mostraran correctamente
 
 ---
 

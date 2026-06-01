@@ -23,8 +23,9 @@ Built with .NET 8, WPF and C#, following an MVVM architecture.
 
 ## Screenshots
 
-> *(Add screenshots here once the UI is stable)*
-
+<img src="Images/Login.png" width="49%"/> <img src="Images/Dashboard.png" width="49%"/>
+<img src="Images/Generator.png" width="49%"/> <img src="Images/Settings.png" width="49%"/>
+<img src="Images/Changelog.png" width="49%"/>
 ---
 
 ## Tech Stack
@@ -41,6 +42,7 @@ Built with .NET 8, WPF and C#, following an MVVM architecture.
 ---
 
 ## Project Structure
+```
 Sailock/
 ├── Helpers/        # RelayCommand, ViewModelBase, Converters, QR helper
 ├── Models/         # PasswordEntry, AppData, AppSettings, ChangelogEntry
@@ -49,7 +51,7 @@ Sailock/
 ├── ViewModels/     # One ViewModel per screen
 ├── Views/          # XAML UserControls
 └── Fonts/          # Supermolot Light
-
+```
 ---
 
 ## Getting Started
@@ -91,7 +93,7 @@ See [CHANGELOG.md](CHANGELOG.md) for the full version history.
 
 ## License
 
-This project is currently unlicensed. All rights reserved by the author.
+This project is currently unlicensed. All rights reserved.
 
 ---
 

@@ -20,8 +20,8 @@
         <TextBlock Grid.Row="0"
                    Text="{DynamicResource Generator_Title}"
                    Foreground="White"
-                   FontFamily="/Fonts/#Supermolot Light"
-                   FontSize="36"
+                   FontFamily="/Fonts/#JetBrains Mono"
+                   FontSize="28"
                    Margin="0,0,0,24"/>
 
         <!-- Contraseña generada + COPY -->
@@ -40,7 +40,7 @@
                 <Grid>
                     <TextBlock Text="{DynamicResource Generator_Placeholder}"
                                Foreground="#2A2A2A"
-                               FontFamily="/Fonts/#Supermolot Light"
+                               FontFamily="/Fonts/#JetBrains Mono"
                                FontSize="13"
                                VerticalAlignment="Center"
                                Padding="14,0"
@@ -61,7 +61,7 @@
                     </TextBlock>
                     <TextBlock Text="{Binding GeneratedPassword}"
                                Foreground="#00FF41"
-                               FontFamily="/Fonts/#Supermolot Light"
+                               FontFamily="/Fonts/#JetBrains Mono"
                                FontSize="14"
                                VerticalAlignment="Center"
                                Padding="14,0"/>
@@ -78,7 +78,7 @@
         <!-- Slider longitud -->
         <StackPanel Grid.Row="2" Margin="0,0,0,20">
             <TextBlock Foreground="White"
-                       FontFamily="/Fonts/#Supermolot Light"
+                       FontFamily="/Fonts/#JetBrains Mono"
                        FontSize="12"
                        Margin="0,0,0,8">
                 <Run Text="{DynamicResource Generator_LengthPrefix}"/>
@@ -126,7 +126,7 @@
             <TextBlock Grid.Column="0"
                        Text="{DynamicResource Generator_RepeatChars}"
                        Foreground="White"
-                       FontFamily="/Fonts/#Supermolot Light"
+                       FontFamily="/Fonts/#JetBrains Mono"
                        FontSize="12"
                        VerticalAlignment="Center"
                        Margin="0,0,16,0"/>
@@ -136,7 +136,7 @@
             <TextBlock Grid.Column="3"
                        Text="{DynamicResource Generator_SequentialChars}"
                        Foreground="White"
-                       FontFamily="/Fonts/#Supermolot Light"
+                       FontFamily="/Fonts/#JetBrains Mono"
                        FontSize="12"
                        VerticalAlignment="Center"
                        Margin="0,0,16,0"/>
@@ -154,7 +154,7 @@
             <TextBlock Grid.Column="0"
                        Text="{DynamicResource Generator_ExcludeChars}"
                        Foreground="White"
-                       FontFamily="/Fonts/#Supermolot Light"
+                       FontFamily="/Fonts/#JetBrains Mono"
                        FontSize="12"
                        VerticalAlignment="Center"/>
             <TextBox Grid.Column="1"
@@ -172,13 +172,13 @@
             <TextBlock Grid.Column="0"
                        Text="{DynamicResource Generator_StartWith}"
                        Foreground="White"
-                       FontFamily="/Fonts/#Supermolot Light"
+                       FontFamily="/Fonts/#JetBrains Mono"
                        FontSize="12"
                        VerticalAlignment="Center"/>
             <TextBox Grid.Column="1"
                      Text="{Binding StartWith, UpdateSourceTrigger=PropertyChanged}"
                      Style="{StaticResource ModalTextBoxWithPlaceholder}"
-                     Width="160" Height="38"/>
+                     Width="52" Height="38" TextChanged="TextBox_TextChanged_1"/>
         </Grid>
 
         <!-- Botón Generate -->

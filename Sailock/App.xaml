@@ -25,6 +25,7 @@
             <SolidColorBrush x:Key="ContrastSeparatorBrush" Color="#1A1A1A"/>
             <sys:Double x:Key="ContrastShadowOpacity">0.0</sys:Double>
             <sys:Double x:Key="GlobalScale">1.0</sys:Double>
+            <sys:Double x:Key="GlobalScaleInverse">1.0</sys:Double>
 
             <!-- Recursos de tema dinámicos -->
             <SolidColorBrush x:Key="AppBackground"      Color="#000000"/>
@@ -136,8 +137,8 @@
             <!-- CheckBox -->
             <Style x:Key="SailockCheckBox" TargetType="CheckBox">
                 <Setter Property="Foreground" Value="White"/>
-                <Setter Property="FontFamily" Value="/Fonts/#Supermolot Light"/>
-                <Setter Property="FontSize" Value="12"/>
+                <Setter Property="FontFamily" Value="/Fonts/#JetBrains Mono"/>
+                <Setter Property="FontSize" Value="11"/>
                 <Setter Property="VerticalContentAlignment" Value="Center"/>
                 <Setter Property="Cursor" Value="Hand"/>
                 <Setter Property="Template">
@@ -213,8 +214,8 @@
                 <Setter Property="BorderBrush" Value="#00ab26"/>
                 <Setter Property="BorderThickness" Value="1"/>
                 <Setter Property="Height" Value="38"/>
-                <Setter Property="FontFamily" Value="/Fonts/#Supermolot Light"/>
-                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="FontFamily" Value="/Fonts/#JetBrains Mono"/>
+                <Setter Property="FontSize" Value="13"/>
                 <Setter Property="Template">
                     <Setter.Value>
                         <ControlTemplate TargetType="PasswordBox">
@@ -237,8 +238,8 @@
                 <Setter Property="Foreground" Value="#00FF41"/>
                 <Setter Property="BorderBrush" Value="#00FF41"/>
                 <Setter Property="BorderThickness" Value="1"/>
-                <Setter Property="FontFamily" Value="/Fonts/#Supermolot Light"/>
-                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="FontFamily" Value="/Fonts/#JetBrains Mono"/>
+                <Setter Property="FontSize" Value="13"/>
                 <Setter Property="Height" Value="38"/>
                 <Setter Property="Cursor" Value="Hand"/>
                 <Setter Property="Template">
@@ -316,27 +317,30 @@
             <!-- Botón sidebar -->
             <Style x:Key="SidebarButton" TargetType="Button">
                 <Setter Property="Background" Value="Transparent"/>
-                <Setter Property="Foreground" Value="#666666"/>
+                <Setter Property="Foreground" Value="#555555"/>
                 <Setter Property="BorderThickness" Value="0"/>
-                <Setter Property="FontFamily" Value="/Fonts/#Supermolot Light"/>
+                <Setter Property="FontFamily" Value="/Fonts/#JetBrains Mono"/>
                 <Setter Property="FontSize" Value="13"/>
-                <Setter Property="Height" Value="44"/>
+                <Setter Property="Height" Value="48"/>
                 <Setter Property="Cursor" Value="Hand"/>
                 <Setter Property="HorizontalContentAlignment" Value="Left"/>
                 <Setter Property="Template">
                     <Setter.Value>
                         <ControlTemplate TargetType="Button">
                             <Border x:Name="border"
-                                    Background="{TemplateBinding Background}"
-                                    BorderThickness="3,0,0,0"
-                                    BorderBrush="Transparent">
-                                <ContentPresenter HorizontalAlignment="Left"
-                                                  VerticalAlignment="Center"
-                                                  Margin="24,0,0,0"/>
+                        Background="{TemplateBinding Background}"
+                        BorderThickness="3,0,0,0"
+                        BorderBrush="Transparent">
+                                <StackPanel Orientation="Horizontal"
+                                VerticalAlignment="Center"
+                                Margin="20,0,0,0">
+                                    <ContentPresenter VerticalAlignment="Center"/>
+                                </StackPanel>
                             </Border>
                             <ControlTemplate.Triggers>
                                 <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter TargetName="border" Property="Background" Value="#111111"/>
+                                    <Setter TargetName="border" Property="Background" Value="#0D0D0D"/>
+                                    <Setter TargetName="border" Property="BorderBrush" Value="#00FF41"/>
                                     <Setter Property="Foreground" Value="#00FF41"/>
                                 </Trigger>
                             </ControlTemplate.Triggers>
@@ -344,11 +348,10 @@
                     </Setter.Value>
                 </Setter>
             </Style>
-
             <!-- ModalLabel -->
             <Style x:Key="ModalLabel" TargetType="TextBlock">
                 <Setter Property="Foreground" Value="#666666"/>
-                <Setter Property="FontFamily" Value="/Fonts/#Supermolot Light"/>
+                <Setter Property="FontFamily" Value="/Fonts/#JetBrains Mono"/>
                 <Setter Property="FontSize" Value="11"/>
             </Style>
 
@@ -360,8 +363,8 @@
                 <Setter Property="BorderBrush" Value="#333333"/>
                 <Setter Property="BorderThickness" Value="1"/>
                 <Setter Property="Height" Value="34"/>
-                <Setter Property="FontFamily" Value="/Fonts/#Supermolot Light"/>
-                <Setter Property="FontSize" Value="12"/>
+                <Setter Property="FontFamily" Value="/Fonts/#JetBrains Mono"/>
+                <Setter Property="FontSize" Value="11"/>
                 <Setter Property="Padding" Value="10,0"/>
                 <Setter Property="VerticalContentAlignment" Value="Center"/>
                 <Setter Property="Template">
@@ -385,8 +388,8 @@
                 <Setter Property="Foreground" Value="#FF4D4D"/>
                 <Setter Property="BorderBrush" Value="#FF4D4D"/>
                 <Setter Property="BorderThickness" Value="1"/>
-                <Setter Property="FontFamily" Value="/Fonts/#Supermolot Light"/>
-                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="FontFamily" Value="/Fonts/#JetBrains Mono"/>
+                <Setter Property="FontSize" Value="13"/>
                 <Setter Property="Height" Value="38"/>
                 <Setter Property="Cursor" Value="Hand"/>
                 <Setter Property="Template">
@@ -422,7 +425,7 @@
                                     <TextBlock x:Name="placeholder"
                                                Text="{TemplateBinding Tag}"
                                                Foreground="#444444"
-                                               FontFamily="/Fonts/#Supermolot Light"
+                                               FontFamily="/Fonts/#JetBrains Mono"
                                                FontSize="{TemplateBinding FontSize}"
                                                VerticalAlignment="Center"
                                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
@@ -451,8 +454,8 @@
                 <Setter Property="Foreground" Value="#00FF41"/>
                 <Setter Property="BorderBrush" Value="#333333"/>
                 <Setter Property="BorderThickness" Value="1"/>
-                <Setter Property="FontFamily" Value="/Fonts/#Supermolot Light"/>
-                <Setter Property="FontSize" Value="12"/>
+                <Setter Property="FontFamily" Value="/Fonts/#JetBrains Mono"/>
+                <Setter Property="FontSize" Value="11"/>
                 <Setter Property="Height" Value="34"/>
                 <Setter Property="Cursor" Value="Hand"/>
                 <Setter Property="Template">
@@ -510,8 +513,8 @@
                         <Style TargetType="ComboBoxItem">
                             <Setter Property="Foreground" Value="#888888"/>
                             <Setter Property="Background" Value="Transparent"/>
-                            <Setter Property="FontFamily" Value="/Fonts/#Supermolot Light"/>
-                            <Setter Property="FontSize" Value="12"/>
+                            <Setter Property="FontFamily" Value="/Fonts/#JetBrains Mono"/>
+                            <Setter Property="FontSize" Value="11"/>
                             <Setter Property="Padding" Value="10,8"/>
                             <Setter Property="Cursor" Value="Hand"/>
                             <Setter Property="Template">

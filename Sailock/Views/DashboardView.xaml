@@ -17,8 +17,8 @@
             <TextBlock Grid.Row="0"
                        Text="{DynamicResource Dashboard_Title}"
                        Foreground="White"
-                       FontFamily="/Fonts/#Supermolot Light"
-                       FontSize="36"
+                       FontFamily="/Fonts/#JetBrains Mono"
+                       FontSize="28"
                        Margin="0,0,0,24"/>
 
             <!-- Barra búsqueda + Add New -->
@@ -38,7 +38,7 @@
                          Height="38"
                          Padding="14,0"
                          VerticalContentAlignment="Center"
-                         FontFamily="/Fonts/#Supermolot Light"
+                         FontFamily="/Fonts/#JetBrains Mono"
                          FontSize="12"
                          Margin="0,0,12,0">
                     <TextBox.Style>
@@ -76,13 +76,13 @@
                     <ColumnDefinition Width="100"/>
                 </Grid.ColumnDefinitions>
                 <TextBlock Grid.Column="0" Text="{DynamicResource Dashboard_ColTitle}"
-                           Foreground="#444444" FontFamily="/Fonts/#Supermolot Light" FontSize="11" Margin="4,0,0,0"/>
+                           Foreground="#444444" FontFamily="/Fonts/#JetBrains Mono" FontSize="11" Margin="4,0,0,0"/>
                 <TextBlock Grid.Column="1" Text="{DynamicResource Dashboard_ColData}"
-                           Foreground="#444444" FontFamily="/Fonts/#Supermolot Light" FontSize="11"/>
+                           Foreground="#444444" FontFamily="/Fonts/#JetBrains Mono" FontSize="11"/>
                 <TextBlock Grid.Column="2" Text="{DynamicResource Dashboard_ColValue}"
-                           Foreground="#444444" FontFamily="/Fonts/#Supermolot Light" FontSize="11"/>
+                           Foreground="#444444" FontFamily="/Fonts/#JetBrains Mono" FontSize="11"/>
                 <TextBlock Grid.Column="3" Text="{DynamicResource Dashboard_ColOptions}"
-                           Foreground="#444444" FontFamily="/Fonts/#Supermolot Light" FontSize="11" HorizontalAlignment="Right"/>
+                           Foreground="#444444" FontFamily="/Fonts/#JetBrains Mono" FontSize="11" HorizontalAlignment="Right"/>
             </Grid>
 
             <Rectangle Grid.Row="2" Height="1" Fill="#1A1A1A" VerticalAlignment="Bottom" Margin="0,0,0,-1"/>
@@ -103,33 +103,33 @@
                                 </Grid.ColumnDefinitions>
 
                                 <TextBlock Grid.Column="0" Text="{Binding Title}"
-                                           Foreground="White" FontFamily="/Fonts/#Supermolot Light"
+                                           Foreground="White" FontFamily="/Fonts/#JetBrains Mono"
                                            FontSize="13" VerticalAlignment="Center" Margin="4,0,0,0"/>
 
                                 <StackPanel Grid.Column="1" VerticalAlignment="Center">
                                     <TextBlock Text="{DynamicResource Dashboard_FieldEmail}"
-                                               Foreground="#555555" FontFamily="/Fonts/#Supermolot Light" FontSize="11"
+                                               Foreground="#555555" FontFamily="/Fonts/#JetBrains Mono" FontSize="11"
                                                Visibility="{Binding Email, Converter={StaticResource NullToVisibilityConverter}}"/>
                                     <TextBlock Text="{DynamicResource Dashboard_FieldUsername}"
-                                               Foreground="#555555" FontFamily="/Fonts/#Supermolot Light" FontSize="11"
+                                               Foreground="#555555" FontFamily="/Fonts/#JetBrains Mono" FontSize="11"
                                                Visibility="{Binding Username, Converter={StaticResource NullToVisibilityConverter}}"/>
                                     <TextBlock Text="{DynamicResource Dashboard_FieldPassword}"
-                                               Foreground="#555555" FontFamily="/Fonts/#Supermolot Light" FontSize="11"/>
+                                               Foreground="#555555" FontFamily="/Fonts/#JetBrains Mono" FontSize="11"/>
                                 </StackPanel>
 
                                 <StackPanel Grid.Column="2" VerticalAlignment="Center">
                                     <TextBlock Text="{Binding Email}"
-                                               Foreground="#00FF41" FontFamily="/Fonts/#Supermolot Light" FontSize="11"
+                                               Foreground="#00FF41" FontFamily="/Fonts/#JetBrains Mono" FontSize="11"
                                                Visibility="{Binding Email, Converter={StaticResource NullToVisibilityConverter}}"/>
                                     <TextBlock Text="{Binding Username}"
-                                               Foreground="#00FF41" FontFamily="/Fonts/#Supermolot Light" FontSize="11"
+                                               Foreground="#00FF41" FontFamily="/Fonts/#JetBrains Mono" FontSize="11"
                                                Visibility="{Binding Username, Converter={StaticResource NullToVisibilityConverter}}"/>
                                     <StackPanel Orientation="Horizontal">
                                         <TextBlock Text="••••••••••" Foreground="#00FF41" FontSize="11"
                                                    VerticalAlignment="Center" Margin="0,0,10,0"/>
                                         <Button Content="{DynamicResource Dashboard_CopyPassword}"
                                                 Foreground="#00ab26" Background="Transparent" BorderThickness="0"
-                                                FontFamily="/Fonts/#Supermolot Light" FontSize="11" Cursor="Hand"
+                                                FontFamily="/Fonts/#JetBrains Mono" FontSize="11" Cursor="Hand"
                                                 Command="{Binding DataContext.CopyPasswordCommand, RelativeSource={RelativeSource AncestorType=ItemsControl}}"
                                                 CommandParameter="{Binding}"/>
                                     </StackPanel>
@@ -138,7 +138,7 @@
                                 <Button Grid.Column="3"
                                         Content="{DynamicResource Dashboard_Edit}"
                                         Foreground="#00FF41" Background="Transparent" BorderThickness="0"
-                                        FontFamily="/Fonts/#Supermolot Light" FontSize="12" Cursor="Hand"
+                                        FontFamily="/Fonts/#JetBrains Mono" FontSize="12" Cursor="Hand"
                                         HorizontalAlignment="Right" VerticalAlignment="Center"
                                         Command="{Binding DataContext.OpenEditModalCommand, RelativeSource={RelativeSource AncestorType=ItemsControl}}"
                                         CommandParameter="{Binding}"/>
@@ -153,29 +153,37 @@
 
         <!-- ═══════════════════════ MODAL ADD NEW ═══════════════════════ -->
         <Grid Visibility="{Binding IsAddModalOpen, Converter={StaticResource BoolToVisibilityConverter}}">
+            <Grid.LayoutTransform>
+                <ScaleTransform ScaleX="{DynamicResource GlobalScaleInverse}"
+                        ScaleY="{DynamicResource GlobalScaleInverse}"/>
+            </Grid.LayoutTransform>
             <Rectangle Fill="#000000" Opacity="0.7"/>
             <Border Background="#111111" BorderBrush="#00ab26" BorderThickness="1"
-                    Width="460" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="36,30">
+            Width="460" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="36,30">
                 <StackPanel>
                     <TextBlock Text="{DynamicResource Modal_AddNew_Title}"
-                               Foreground="White" FontFamily="/Fonts/#Supermolot Light"
-                               FontSize="22" HorizontalAlignment="Center" Margin="0,0,0,20"/>
+                       Foreground="White" FontFamily="/Fonts/#JetBrains Mono"
+                       FontSize="18"
+                       HorizontalAlignment="Center"
+                       TextAlignment="Center"
+                       TextWrapping="Wrap"
+                       Margin="0,0,0,20"/>
 
                     <TextBlock Text="{DynamicResource Modal_FieldTitle}" Style="{StaticResource ModalLabel}"/>
                     <TextBox Text="{Binding EditingEntry.Title, UpdateSourceTrigger=PropertyChanged}"
-                             Style="{StaticResource ModalTextBox}" Margin="0,4,0,12"/>
+                     Style="{StaticResource ModalTextBox}" Margin="0,4,0,12"/>
 
                     <TextBlock Text="{DynamicResource Modal_FieldCategory}" Style="{StaticResource ModalLabel}"/>
                     <TextBox Text="{Binding EditingEntry.Category, UpdateSourceTrigger=PropertyChanged}"
-                             Style="{StaticResource ModalTextBox}" Margin="0,4,0,12"/>
+                     Style="{StaticResource ModalTextBox}" Margin="0,4,0,12"/>
 
                     <TextBlock Text="{DynamicResource Modal_FieldEmail}" Style="{StaticResource ModalLabel}"/>
                     <TextBox Text="{Binding EditingEntry.Email, UpdateSourceTrigger=PropertyChanged}"
-                             Style="{StaticResource ModalTextBox}" Margin="0,4,0,12"/>
+                     Style="{StaticResource ModalTextBox}" Margin="0,4,0,12"/>
 
                     <TextBlock Text="{DynamicResource Modal_FieldUsername}" Style="{StaticResource ModalLabel}"/>
                     <TextBox Text="{Binding EditingEntry.Username, UpdateSourceTrigger=PropertyChanged}"
-                             Style="{StaticResource ModalTextBox}" Margin="0,4,0,12"/>
+                     Style="{StaticResource ModalTextBox}" Margin="0,4,0,12"/>
 
                     <TextBlock Text="{DynamicResource Modal_FieldPassword}" Style="{StaticResource ModalLabel}"/>
                     <Grid Margin="0,4,0,12">
@@ -185,11 +193,11 @@
                         </Grid.ColumnDefinitions>
 
                         <TextBox Grid.Column="0"
-                                 Text="{Binding EditingEntry.Password, UpdateSourceTrigger=PropertyChanged}"
-                                 Background="#0D0D0D" Foreground="White" CaretBrush="#00FF41"
-                                 BorderBrush="#333333" BorderThickness="1" Height="34"
-                                 FontFamily="/Fonts/#Supermolot Light" FontSize="12"
-                                 Padding="10,0" VerticalContentAlignment="Center">
+                         Text="{Binding EditingEntry.Password, UpdateSourceTrigger=PropertyChanged}"
+                         Background="#0D0D0D" Foreground="White" CaretBrush="#00FF41"
+                         BorderBrush="#333333" BorderThickness="1" Height="34"
+                         FontFamily="/Fonts/#JetBrains Mono" FontSize="11"
+                         Padding="10,0" VerticalContentAlignment="Center">
                             <TextBox.Style>
                                 <Style TargetType="TextBox">
                                     <Setter Property="Visibility" Value="Collapsed"/>
@@ -197,11 +205,11 @@
                                         <Setter.Value>
                                             <ControlTemplate TargetType="TextBox">
                                                 <Border Background="{TemplateBinding Background}"
-                                                        BorderBrush="{TemplateBinding BorderBrush}"
-                                                        BorderThickness="{TemplateBinding BorderThickness}">
+                                                BorderBrush="{TemplateBinding BorderBrush}"
+                                                BorderThickness="{TemplateBinding BorderThickness}">
                                                     <ScrollViewer x:Name="PART_ContentHost"
-                                                                  VerticalAlignment="Center"
-                                                                  Margin="{TemplateBinding Padding}"/>
+                                                          VerticalAlignment="Center"
+                                                          Margin="{TemplateBinding Padding}"/>
                                                 </Border>
                                             </ControlTemplate>
                                         </Setter.Value>
@@ -216,11 +224,11 @@
                         </TextBox>
 
                         <PasswordBox x:Name="AddPasswordBox"
-                                     Grid.Column="0"
-                                     PasswordChanged="EditPasswordBox_PasswordChanged"
-                                     Background="#0D0D0D" Foreground="#00FF41" CaretBrush="#00FF41"
-                                     BorderBrush="#333333" BorderThickness="1" Height="34"
-                                     FontFamily="/Fonts/#Supermolot Light" FontSize="14">
+                             Grid.Column="0"
+                             PasswordChanged="EditPasswordBox_PasswordChanged"
+                             Background="#0D0D0D" Foreground="#00FF41" CaretBrush="#00FF41"
+                             BorderBrush="#333333" BorderThickness="1" Height="34"
+                             FontFamily="/Fonts/#JetBrains Mono" FontSize="13">
                             <PasswordBox.Style>
                                 <Style TargetType="PasswordBox">
                                     <Setter Property="Visibility" Value="Visible"/>
@@ -228,12 +236,12 @@
                                         <Setter.Value>
                                             <ControlTemplate TargetType="PasswordBox">
                                                 <Border Background="{TemplateBinding Background}"
-                                                        BorderBrush="{TemplateBinding BorderBrush}"
-                                                        BorderThickness="{TemplateBinding BorderThickness}">
+                                                BorderBrush="{TemplateBinding BorderBrush}"
+                                                BorderThickness="{TemplateBinding BorderThickness}">
                                                     <ScrollViewer x:Name="PART_ContentHost"
-                                                                  HorizontalAlignment="Center"
-                                                                  VerticalAlignment="Center"
-                                                                  Margin="10,0"/>
+                                                          HorizontalAlignment="Left"
+                                                          VerticalAlignment="Center"
+                                                          Margin="10,0"/>
                                                 </Border>
                                             </ControlTemplate>
                                         </Setter.Value>
@@ -248,27 +256,25 @@
                         </PasswordBox>
 
                         <Button Grid.Column="1" Content="👁" Background="Transparent" BorderThickness="0"
-                                Foreground="#444444" FontSize="14" Cursor="Hand"
-                                VerticalAlignment="Center" HorizontalAlignment="Center"
-                                Command="{Binding TogglePasswordVisibilityCommand}"/>
+                        Foreground="#444444" FontSize="14" Cursor="Hand"
+                        VerticalAlignment="Center" HorizontalAlignment="Center"
+                        Command="{Binding TogglePasswordVisibilityCommand}"/>
                     </Grid>
 
                     <TextBlock Text="{DynamicResource Modal_FieldNote}" Style="{StaticResource ModalLabel}"/>
                     <TextBox Text="{Binding EditingEntry.Note, UpdateSourceTrigger=PropertyChanged}"
-                             Style="{StaticResource ModalTextBox}" Height="80"
-                             TextWrapping="Wrap" AcceptsReturn="True"
-                             VerticalContentAlignment="Top" Margin="0,4,0,24"/>
+                     Style="{StaticResource ModalTextBox}" Height="80"
+                     TextWrapping="Wrap" AcceptsReturn="True"
+                     VerticalContentAlignment="Top" Margin="0,4,0,24"/>
 
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                         <Button Content="{DynamicResource Modal_Save}"
-                                Width="120"
-                                Style="{StaticResource SailockButton}"
-                                Command="{Binding SaveNewEntryCommand}"
-                                Margin="0,0,16,0"/>
+                        Width="120" Style="{StaticResource SailockButton}"
+                        Command="{Binding SaveNewEntryCommand}"
+                        Margin="0,0,16,0"/>
                         <Button Content="{DynamicResource Modal_Cancel}"
-                                Width="120"
-                                Style="{StaticResource SailockButton}"
-                                Command="{Binding CancelAddCommand}"/>
+                        Width="120" Style="{StaticResource SailockButton}"
+                        Command="{Binding CancelAddCommand}"/>
                     </StackPanel>
                 </StackPanel>
             </Border>
@@ -276,29 +282,37 @@
 
         <!-- ═══════════════════════ MODAL EDIT ═══════════════════════ -->
         <Grid Visibility="{Binding IsEditModalOpen, Converter={StaticResource BoolToVisibilityConverter}}">
+            <Grid.LayoutTransform>
+                <ScaleTransform ScaleX="{DynamicResource GlobalScaleInverse}"
+                        ScaleY="{DynamicResource GlobalScaleInverse}"/>
+            </Grid.LayoutTransform>
             <Rectangle Fill="#000000" Opacity="0.7"/>
             <Border Background="#111111" BorderBrush="#00ab26" BorderThickness="1"
-                    Width="460" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="36,30">
+            Width="460" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="36,30">
                 <StackPanel>
                     <TextBlock Text="{DynamicResource Modal_Edit_Title}"
-                               Foreground="White" FontFamily="/Fonts/#Supermolot Light"
-                               FontSize="22" HorizontalAlignment="Center" Margin="0,0,0,20"/>
+                       Foreground="White" FontFamily="/Fonts/#JetBrains Mono"
+                       FontSize="18"
+                       HorizontalAlignment="Center"
+                       TextAlignment="Center"
+                       TextWrapping="Wrap"
+                       Margin="0,0,0,20"/>
 
                     <TextBlock Text="{DynamicResource Modal_FieldTitle}" Style="{StaticResource ModalLabel}"/>
                     <TextBox Text="{Binding EditingEntry.Title, UpdateSourceTrigger=PropertyChanged}"
-                             Style="{StaticResource ModalTextBox}" Margin="0,4,0,12"/>
+                     Style="{StaticResource ModalTextBox}" Margin="0,4,0,12"/>
 
                     <TextBlock Text="{DynamicResource Modal_FieldCategory}" Style="{StaticResource ModalLabel}"/>
                     <TextBox Text="{Binding EditingEntry.Category, UpdateSourceTrigger=PropertyChanged}"
-                             Style="{StaticResource ModalTextBox}" Margin="0,4,0,12"/>
+                     Style="{StaticResource ModalTextBox}" Margin="0,4,0,12"/>
 
                     <TextBlock Text="{DynamicResource Modal_FieldEmail}" Style="{StaticResource ModalLabel}"/>
                     <TextBox Text="{Binding EditingEntry.Email, UpdateSourceTrigger=PropertyChanged}"
-                             Style="{StaticResource ModalTextBox}" Margin="0,4,0,12"/>
+                     Style="{StaticResource ModalTextBox}" Margin="0,4,0,12"/>
 
                     <TextBlock Text="{DynamicResource Modal_FieldUsername}" Style="{StaticResource ModalLabel}"/>
                     <TextBox Text="{Binding EditingEntry.Username, UpdateSourceTrigger=PropertyChanged}"
-                             Style="{StaticResource ModalTextBox}" Margin="0,4,0,12"/>
+                     Style="{StaticResource ModalTextBox}" Margin="0,4,0,12"/>
 
                     <TextBlock Text="{DynamicResource Modal_FieldPassword}" Style="{StaticResource ModalLabel}"/>
                     <Grid Margin="0,4,0,12">
@@ -308,11 +322,11 @@
                         </Grid.ColumnDefinitions>
 
                         <TextBox Grid.Column="0"
-                                 Text="{Binding EditingEntry.Password, UpdateSourceTrigger=PropertyChanged}"
-                                 Background="#0D0D0D" Foreground="White" CaretBrush="#00FF41"
-                                 BorderBrush="#333333" BorderThickness="1" Height="34"
-                                 FontFamily="/Fonts/#Supermolot Light" FontSize="12"
-                                 Padding="10,0" VerticalContentAlignment="Center">
+                         Text="{Binding EditingEntry.Password, UpdateSourceTrigger=PropertyChanged}"
+                         Background="#0D0D0D" Foreground="White" CaretBrush="#00FF41"
+                         BorderBrush="#333333" BorderThickness="1" Height="34"
+                         FontFamily="/Fonts/#JetBrains Mono" FontSize="11"
+                         Padding="10,0" VerticalContentAlignment="Center">
                             <TextBox.Style>
                                 <Style TargetType="TextBox">
                                     <Setter Property="Visibility" Value="Collapsed"/>
@@ -320,11 +334,11 @@
                                         <Setter.Value>
                                             <ControlTemplate TargetType="TextBox">
                                                 <Border Background="{TemplateBinding Background}"
-                                                        BorderBrush="{TemplateBinding BorderBrush}"
-                                                        BorderThickness="{TemplateBinding BorderThickness}">
+                                                BorderBrush="{TemplateBinding BorderBrush}"
+                                                BorderThickness="{TemplateBinding BorderThickness}">
                                                     <ScrollViewer x:Name="PART_ContentHost"
-                                                                  VerticalAlignment="Center"
-                                                                  Margin="{TemplateBinding Padding}"/>
+                                                          VerticalAlignment="Center"
+                                                          Margin="{TemplateBinding Padding}"/>
                                                 </Border>
                                             </ControlTemplate>
                                         </Setter.Value>
@@ -339,11 +353,11 @@
                         </TextBox>
 
                         <PasswordBox x:Name="EditPasswordBoxModal"
-                                     Grid.Column="0"
-                                     PasswordChanged="EditPasswordBox_PasswordChanged"
-                                     Background="#0D0D0D" Foreground="#00FF41" CaretBrush="#00FF41"
-                                     BorderBrush="#333333" BorderThickness="1" Height="34"
-                                     FontFamily="/Fonts/#Supermolot Light" FontSize="14">
+                             Grid.Column="0"
+                             PasswordChanged="EditPasswordBox_PasswordChanged"
+                             Background="#0D0D0D" Foreground="#00FF41" CaretBrush="#00FF41"
+                             BorderBrush="#333333" BorderThickness="1" Height="34"
+                             FontFamily="/Fonts/#JetBrains Mono" FontSize="13">
                             <PasswordBox.Style>
                                 <Style TargetType="PasswordBox">
                                     <Setter Property="Visibility" Value="Visible"/>
@@ -351,12 +365,12 @@
                                         <Setter.Value>
                                             <ControlTemplate TargetType="PasswordBox">
                                                 <Border Background="{TemplateBinding Background}"
-                                                        BorderBrush="{TemplateBinding BorderBrush}"
-                                                        BorderThickness="{TemplateBinding BorderThickness}">
+                                                BorderBrush="{TemplateBinding BorderBrush}"
+                                                BorderThickness="{TemplateBinding BorderThickness}">
                                                     <ScrollViewer x:Name="PART_ContentHost"
-                                                                  HorizontalAlignment="Center"
-                                                                  VerticalAlignment="Center"
-                                                                  Margin="10,0"/>
+                                                          HorizontalAlignment="Left"
+                                                          VerticalAlignment="Center"
+                                                          Margin="10,0"/>
                                                 </Border>
                                             </ControlTemplate>
                                         </Setter.Value>
@@ -371,33 +385,30 @@
                         </PasswordBox>
 
                         <Button Grid.Column="1" Content="👁" Background="Transparent" BorderThickness="0"
-                                Foreground="#444444" FontSize="14" Cursor="Hand"
-                                VerticalAlignment="Center" HorizontalAlignment="Center"
-                                Command="{Binding TogglePasswordVisibilityCommand}"/>
+                        Foreground="#444444" FontSize="14" Cursor="Hand"
+                        VerticalAlignment="Center" HorizontalAlignment="Center"
+                        Command="{Binding TogglePasswordVisibilityCommand}"/>
                     </Grid>
 
                     <TextBlock Text="{DynamicResource Modal_FieldNote}" Style="{StaticResource ModalLabel}"/>
                     <TextBox Text="{Binding EditingEntry.Note, UpdateSourceTrigger=PropertyChanged}"
-                             Style="{StaticResource ModalTextBox}" Height="80"
-                             TextWrapping="Wrap" AcceptsReturn="True"
-                             VerticalContentAlignment="Top" Margin="0,4,0,24"/>
+                     Style="{StaticResource ModalTextBox}" Height="80"
+                     TextWrapping="Wrap" AcceptsReturn="True"
+                     VerticalContentAlignment="Top" Margin="0,4,0,24"/>
 
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                         <Button Content="{DynamicResource Modal_SaveChanges}"
-                                Width="110"
-                                Style="{StaticResource SailockButton}"
-                                Command="{Binding SaveEditCommand}"
-                                Margin="0,0,12,0"
-                                Visibility="{Binding HasEditChanges, Converter={StaticResource BoolToVisibilityConverter}}"/>
+                        Width="110" Style="{StaticResource SailockButton}"
+                        Command="{Binding SaveEditCommand}"
+                        Margin="0,0,12,0"
+                        Visibility="{Binding HasEditChanges, Converter={StaticResource BoolToVisibilityConverter}}"/>
                         <Button Content="{DynamicResource Modal_Delete}"
-                                Width="110"
-                                Style="{StaticResource SailockButton_Danger}"
-                                Command="{Binding DeleteEntryCommand}"
-                                Margin="0,0,12,0"/>
+                        Width="110" Style="{StaticResource SailockButton_Danger}"
+                        Command="{Binding DeleteEntryCommand}"
+                        Margin="0,0,12,0"/>
                         <Button Content="{DynamicResource Modal_Cancel}"
-                                Width="110"
-                                Style="{StaticResource SailockButton}"
-                                Command="{Binding CancelEditCommand}"/>
+                        Width="110" Style="{StaticResource SailockButton}"
+                        Command="{Binding CancelEditCommand}"/>
                     </StackPanel>
                 </StackPanel>
             </Border>
@@ -405,40 +416,55 @@
 
         <!-- ═══════════════════════ MODAL MASTER PASSWORD ═══════════════════════ -->
         <Grid Visibility="{Binding IsMasterPasswordModalOpen, Converter={StaticResource BoolToVisibilityConverter}}">
+            <Grid.LayoutTransform>
+                <ScaleTransform ScaleX="{DynamicResource GlobalScaleInverse}"
+                        ScaleY="{DynamicResource GlobalScaleInverse}"/>
+            </Grid.LayoutTransform>
             <Rectangle Fill="#000000" Opacity="0.75"/>
             <Border Background="#111111" BorderBrush="#00ab26" BorderThickness="1"
-                    Width="380" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="36,30">
+            Width="420" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="36,30">
                 <StackPanel>
                     <TextBlock Text="{DynamicResource Modal_MasterPass_Title}"
-                               Foreground="White" FontFamily="/Fonts/#Supermolot Light"
-                               FontSize="20" HorizontalAlignment="Center" Margin="0,0,0,8"/>
+                       Foreground="White" FontFamily="/Fonts/#JetBrains Mono"
+                       FontSize="16"
+                       HorizontalAlignment="Center"
+                       TextAlignment="Center"
+                       TextWrapping="Wrap"
+                       Margin="0,0,0,8"/>
                     <TextBlock Text="{DynamicResource Modal_MasterPass_Label}"
-                               Foreground="#666666" FontFamily="/Fonts/#Supermolot Light"
-                               FontSize="11" HorizontalAlignment="Center" Margin="0,0,0,20"/>
+                       Foreground="#666666" FontFamily="/Fonts/#JetBrains Mono"
+                       FontSize="11"
+                       HorizontalAlignment="Center"
+                       TextAlignment="Center"
+                       TextWrapping="Wrap"
+                       Margin="0,0,0,20"/>
 
                     <PasswordBox x:Name="MasterPasswordVerify"
-                                 Style="{StaticResource CenteredPasswordBox}"
-                                 PasswordChanged="MasterPasswordVerify_PasswordChanged"
-                                 KeyDown="MasterPasswordVerify_KeyDown"
-                                 Margin="0,0,0,8"/>
+                         Style="{StaticResource CenteredPasswordBox}"
+                         PasswordChanged="MasterPasswordVerify_PasswordChanged"
+                         KeyDown="MasterPasswordVerify_KeyDown"
+                         Margin="0,0,0,8"/>
 
                     <TextBlock Text="{DynamicResource Modal_MasterPass_Error}"
-                               Foreground="#FF4D4D" FontFamily="/Fonts/#Supermolot Light"
-                               FontSize="11" HorizontalAlignment="Center" Margin="0,0,0,16"
-                               Visibility="{Binding MasterPasswordFailed, Converter={StaticResource BoolToVisibilityConverter}}"/>
+                       Foreground="#FF4D4D" FontFamily="/Fonts/#JetBrains Mono"
+                       FontSize="11"
+                       HorizontalAlignment="Center"
+                       TextAlignment="Center"
+                       TextWrapping="Wrap"
+                       Margin="0,0,0,16"
+                       Visibility="{Binding MasterPasswordFailed, Converter={StaticResource BoolToVisibilityConverter}}"/>
 
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                         <Button Content="{DynamicResource Modal_Confirm}"
-                                Width="130" Style="{StaticResource SailockButton}"
-                                Command="{Binding ConfirmMasterPasswordCommand}"
-                                Margin="0,0,16,0"/>
+                        Width="130" Style="{StaticResource SailockButton}"
+                        Command="{Binding ConfirmMasterPasswordCommand}"
+                        Margin="0,0,16,0"/>
                         <Button Content="{DynamicResource Modal_Cancel}"
-                                Width="130" Style="{StaticResource SailockButton}"
-                                Command="{Binding CancelMasterPasswordCommand}"/>
+                        Width="130" Style="{StaticResource SailockButton}"
+                        Command="{Binding CancelMasterPasswordCommand}"/>
                     </StackPanel>
                 </StackPanel>
             </Border>
         </Grid>
-
     </Grid>
 </UserControl>

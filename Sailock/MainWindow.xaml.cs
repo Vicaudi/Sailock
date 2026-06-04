@@ -54,5 +54,12 @@ namespace Sailock
         {
             Application.Current.Shutdown();
         }
+
+        private void VersionText_Click(object sender, MouseButtonEventArgs e)
+        {
+            (DataContext as MainViewModel)?.ShowChangelogCommand.Execute(null);
+        }
+
+        public string AppVersion => $"v{Services.VersionService.Current}";
     }
 }

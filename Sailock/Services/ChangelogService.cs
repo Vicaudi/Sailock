@@ -9,9 +9,29 @@ namespace Sailock.Services
         {
             new ChangelogEntry
             {
+                Version  = "1.2.1",
+                Date     = "2026-06-04",
+                IsLatest = true,
+                Fixed = new List<string>
+                {
+                    "Corregida la desincronización entre el campo de contraseña visible y oculto en los formularios",
+                    "Solucionado el problema de caché visual en el campo de contraseña maestra al abrir edición repetidamente",
+                    "Corregida la alineación inconsistente del campo de contraseña al alternar entre modo visible y oculto",
+                    "Corregidos errores ortográficos en textos de la interfaz en español",
+                },
+                Changed = new List<string>
+                {
+                    "Fuente actualizada a JetBrains Mono para mejorar la distinción entre mayúsculas, minúsculas y caracteres similares",
+                    "Ajustados los tamaños de interfaz: Small, Default y Large con mayor diferencia perceptible",
+                    "El escalado de interfaz ahora no afecta a los modales ni formularios",
+                    "La barra lateral escala junto al contenido al cambiar el tamaño de interfaz"
+                }
+            },
+            new ChangelogEntry
+            {
                 Version  = "1.2.0",
                 Date     = "2026-06-01",
-                IsLatest = true,
+                IsLatest = false,
                 Added = new List<string>
                 {
                     "Añadido soporte para los idiomas español e inglés",
@@ -20,7 +40,7 @@ namespace Sailock.Services
                 },
                 Changed = new List<string>
                 {
-                    "Mejorada la apariencia de las barras de desplazamiento en el Registro de cambios",
+                    "Mejorada la apariencia de las barras de desplazamiento en el Historial de cambios",
                     "Actualizado el estilo del botón de versión para una mayor coherencia visual"
                 },
                 Fixed = new List<string>

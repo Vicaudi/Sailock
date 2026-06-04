@@ -35,8 +35,8 @@
             </Grid.ColumnDefinitions>
 
             <TextBlock Text="SAILOCK"
-                       Foreground="#333333"
-                       FontFamily="/Fonts/#Supermolot Light"
+                       Foreground="#222222"
+                       FontFamily="/Fonts/#JetBrains Mono"
                        FontSize="11"
                        VerticalAlignment="Center"
                        Margin="12,0,0,0"
@@ -59,62 +59,74 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <!-- Sidebar -->
+            <!-- Sidebar con escala igual al contenido -->
             <Border Grid.Column="0"
-                    Width="220"
-                    Background="#0A0A0A"
+                    Background="#080808"
                     BorderBrush="#1A1A1A"
                     BorderThickness="0,0,1,0"
                     Visibility="{Binding SidebarVisibility}">
-                <Grid>
+                <Border.LayoutTransform>
+                    <ScaleTransform ScaleX="{DynamicResource GlobalScale}"
+                                    ScaleY="{DynamicResource GlobalScale}"/>
+                </Border.LayoutTransform>
+
+                <Grid Width="220">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
 
-                    <!-- Logo -->
-                    <Image Grid.Row="0" Height="55" Margin="30,28,30,32"
-                           Source="{Binding LogoSource}"/>
+                    <!-- Logo con fondo ligeramente diferenciado -->
+                    <Border Grid.Row="0"
+                            Background="#0A0A0A"
+                            BorderBrush="#1A1A1A"
+                            BorderThickness="0,0,0,1"
+                            Padding="24,20">
+                        <Image Height="48"
+                               Source="{Binding LogoSource}"
+                               HorizontalAlignment="Center"/>
+                    </Border>
 
                     <!-- Navegación -->
-                    <StackPanel Grid.Row="1" VerticalAlignment="Top">
+                    <StackPanel Grid.Row="1" VerticalAlignment="Top" Margin="0,8,0,0">
+
+                        <!-- Separador visual antes de nav -->
                         <Button Content="{DynamicResource Nav_Dashboard}"
                                 Style="{StaticResource SidebarButton}"
                                 Command="{Binding NavigateDashboardCommand}"/>
+
                         <Button Content="{DynamicResource Nav_Generator}"
                                 Style="{StaticResource SidebarButton}"
                                 Command="{Binding NavigateGeneratorCommand}"/>
+
                         <Button Content="{DynamicResource Nav_Settings}"
                                 Style="{StaticResource SidebarButton}"
                                 Command="{Binding NavigateSettingsCommand}"/>
+
                     </StackPanel>
 
-                    <!-- Logout + versión -->
-                    <StackPanel Grid.Row="2" Margin="20,0,20,20">
-                        <Button Content="{DynamicResource Nav_Logout}"
-                                Style="{StaticResource SailockButton}"
-                                Command="{Binding LogoutCommand}"
-                                Margin="0,0,0,10"/>
-                        <Button Content="v1.2.0"
-                                Background="Transparent"
-                                BorderThickness="0"
-                                Foreground="#555555"
-                                FontSize="12"
-                                FontFamily="/Fonts/#Supermolot Light"
-                                HorizontalAlignment="Center"
-                                Cursor="Arrow"
-                                Height="Auto"
-                                Padding="0"
-                                Margin="0,5,0,0"
-                                Command="{Binding ShowChangelogCommand}">
-                            <Button.Template>
-                                <ControlTemplate TargetType="Button">
-                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                </ControlTemplate>
-                            </Button.Template>
-                        </Button>
-                    </StackPanel>
+                    <!-- Zona inferior: versión + logout -->
+                    <Border Grid.Row="2"
+                            BorderBrush="#1A1A1A"
+                            BorderThickness="0,1,0,0"
+                            Padding="16,16">
+                        <StackPanel>
+                            <Button Content="{DynamicResource Nav_Logout}"
+                                    Style="{StaticResource SailockButton}"
+                                    Command="{Binding LogoutCommand}"
+                                    Margin="0,0,0,12"/>
+
+                            <!-- Versión -->
+                            <TextBlock Text="{Binding AppVersion}"
+                                       Foreground="#333333"
+                                       FontSize="10"
+                                       FontFamily="/Fonts/#JetBrains Mono"
+                                       HorizontalAlignment="Center"
+                                       Cursor="Hand"
+                                       MouseLeftButtonDown="VersionText_Click"/>
+                        </StackPanel>
+                    </Border>
                 </Grid>
             </Border>
 

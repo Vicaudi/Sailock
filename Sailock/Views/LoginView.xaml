@@ -16,7 +16,7 @@
                 <TextBlock Text="{DynamicResource Login_CreateMaster}"
                            Foreground="#00ab26"
                            FontSize="11"
-                           FontFamily="/Fonts/#Supermolot Light"
+                           FontFamily="/Fonts/#JetBrains Mono"
                            HorizontalAlignment="Center"
                            Margin="0,0,0,8">
                     <TextBlock.Style>
@@ -36,7 +36,7 @@
                            Text="{DynamicResource Login_Error}"
                            Foreground="#FF4D4D"
                            FontSize="11"
-                           FontFamily="/Fonts/#Supermolot Light"
+                           FontFamily="/Fonts/#JetBrains Mono"
                            HorizontalAlignment="Center"
                            Margin="0,0,0,8"
                            Visibility="Collapsed"/>
@@ -65,7 +65,7 @@
                             HorizontalAlignment="Center"
                             Command="{Binding LoginCommand}">
                         <Button.Content>
-                            <TextBlock FontFamily="/Fonts/#Supermolot Light" FontSize="14">
+                            <TextBlock FontFamily="/Fonts/#JetBrains Mono" FontSize="14">
                                 <TextBlock.Style>
                                     <Style TargetType="TextBlock">
                                         <Setter Property="Text" Value="{DynamicResource Login_Unlock}"/>
@@ -96,7 +96,7 @@
 
                     <TextBlock Text="{DynamicResource Login_TotpLabel}"
                                Foreground="#666666"
-                               FontFamily="/Fonts/#Supermolot Light"
+                               FontFamily="/Fonts/#JetBrains Mono"
                                FontSize="11"
                                HorizontalAlignment="Center"
                                Margin="0,0,0,8"/>
@@ -118,10 +118,10 @@
                 </StackPanel>
 
                 <!-- Versión -->
-                <TextBlock Text="v1.2.0"
+                <TextBlock Text="v1.2.1"
                            Foreground="#555555"
                            FontSize="10"
-                           FontFamily="/Fonts/#Supermolot Light"
+                           FontFamily="/Fonts/#JetBrains Mono"
                            HorizontalAlignment="Center"
                            Margin="0,5,0,0"/>
 

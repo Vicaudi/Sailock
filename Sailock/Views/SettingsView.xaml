@@ -11,8 +11,8 @@
 
                 <TextBlock Text="{DynamicResource Settings_Title}"
                            Foreground="White"
-                           FontFamily="/Fonts/#Supermolot Light"
-                           FontSize="36"
+                           FontFamily="/Fonts/#JetBrains Mono"
+                           FontSize="28"
                            Margin="0,0,0,24"/>
 
                 <!-- SECURITY -->
@@ -23,7 +23,7 @@
 
                         <TextBlock Text="{DynamicResource Settings_Security}"
                                    Foreground="#444444"
-                                   FontFamily="/Fonts/#Supermolot Light"
+                                   FontFamily="/Fonts/#JetBrains Mono"
                                    FontSize="11"
                                    Margin="16,10,16,10"/>
 
@@ -38,11 +38,11 @@
                             <StackPanel Grid.Column="0">
                                 <TextBlock Text="{DynamicResource Settings_2FA_Title}"
                                            Foreground="White"
-                                           FontFamily="/Fonts/#Supermolot Light"
+                                           FontFamily="/Fonts/#JetBrains Mono"
                                            FontSize="13"/>
                                 <TextBlock Text="{DynamicResource Settings_2FA_Desc}"
                                            Foreground="#444444"
-                                           FontFamily="/Fonts/#Supermolot Light"
+                                           FontFamily="/Fonts/#JetBrains Mono"
                                            FontSize="10"
                                            Margin="0,3,0,0"/>
                             </StackPanel>
@@ -50,7 +50,7 @@
                                     Style="{StaticResource SailockButton}"
                                     Command="{Binding Enable2FACommand}">
                                 <Button.Content>
-                                    <TextBlock FontFamily="/Fonts/#Supermolot Light" FontSize="12">
+                                    <TextBlock FontFamily="/Fonts/#JetBrains Mono" FontSize="12">
                                         <TextBlock.Style>
                                             <Style TargetType="TextBlock">
                                                 <Setter Property="Text" Value="{DynamicResource Settings_2FA_Enable}"/>
@@ -77,11 +77,11 @@
                             <StackPanel Grid.Column="0">
                                 <TextBlock Text="{DynamicResource Settings_MasterPass_Title}"
                                            Foreground="White"
-                                           FontFamily="/Fonts/#Supermolot Light"
+                                           FontFamily="/Fonts/#JetBrains Mono"
                                            FontSize="13"/>
                                 <TextBlock Text="{DynamicResource Settings_MasterPass_Desc}"
                                            Foreground="#444444"
-                                           FontFamily="/Fonts/#Supermolot Light"
+                                           FontFamily="/Fonts/#JetBrains Mono"
                                            FontSize="10"
                                            Margin="0,3,0,0"/>
                             </StackPanel>
@@ -103,11 +103,11 @@
                             <StackPanel Grid.Column="0">
                                 <TextBlock Text="{DynamicResource Settings_AutoLock_Title}"
                                            Foreground="White"
-                                           FontFamily="/Fonts/#Supermolot Light"
+                                           FontFamily="/Fonts/#JetBrains Mono"
                                            FontSize="13"/>
                                 <TextBlock Text="{DynamicResource Settings_AutoLock_Desc}"
                                            Foreground="#444444"
-                                           FontFamily="/Fonts/#Supermolot Light"
+                                           FontFamily="/Fonts/#JetBrains Mono"
                                            FontSize="10"
                                            Margin="0,3,0,0"/>
                             </StackPanel>
@@ -115,7 +115,7 @@
                                     Style="{StaticResource SailockButton}"
                                     Command="{Binding ToggleAutoLockCommand}">
                                 <Button.Content>
-                                    <TextBlock FontFamily="/Fonts/#Supermolot Light" FontSize="12">
+                                    <TextBlock FontFamily="/Fonts/#JetBrains Mono" FontSize="12">
                                         <TextBlock.Style>
                                             <Style TargetType="TextBlock">
                                                 <Setter Property="Text" Value="{DynamicResource Settings_2FA_Enable}"/>
@@ -142,7 +142,7 @@
 
                         <TextBlock Text="{DynamicResource Settings_Accessibility}"
                                    Foreground="#444444"
-                                   FontFamily="/Fonts/#Supermolot Light"
+                                   FontFamily="/Fonts/#JetBrains Mono"
                                    FontSize="11"
                                    Margin="16,10,16,10"/>
 
@@ -157,11 +157,11 @@
                             <StackPanel Grid.Column="0">
                                 <TextBlock Text="{DynamicResource Settings_Theme_Title}"
                                            Foreground="White"
-                                           FontFamily="/Fonts/#Supermolot Light"
+                                           FontFamily="/Fonts/#JetBrains Mono"
                                            FontSize="13"/>
                                 <TextBlock Text="{DynamicResource Settings_Theme_Desc}"
                                            Foreground="#444444"
-                                           FontFamily="/Fonts/#Supermolot Light"
+                                           FontFamily="/Fonts/#JetBrains Mono"
                                            FontSize="10"
                                            Margin="0,3,0,0"/>
                             </StackPanel>
@@ -187,11 +187,11 @@
                             <StackPanel Grid.Column="0">
                                 <TextBlock Text="{DynamicResource Settings_Contrast_Title}"
                                            Foreground="White"
-                                           FontFamily="/Fonts/#Supermolot Light"
+                                           FontFamily="/Fonts/#JetBrains Mono"
                                            FontSize="13"/>
                                 <TextBlock Text="{DynamicResource Settings_Contrast_Desc}"
                                            Foreground="#444444"
-                                           FontFamily="/Fonts/#Supermolot Light"
+                                           FontFamily="/Fonts/#JetBrains Mono"
                                            FontSize="10"
                                            Margin="0,3,0,0"/>
                             </StackPanel>
@@ -217,11 +217,11 @@
                             <StackPanel Grid.Column="0">
                                 <TextBlock Text="{DynamicResource Settings_TextSize_Title}"
                                            Foreground="White"
-                                           FontFamily="/Fonts/#Supermolot Light"
+                                           FontFamily="/Fonts/#JetBrains Mono"
                                            FontSize="13"/>
                                 <TextBlock Text="{DynamicResource Settings_TextSize_Desc}"
                                            Foreground="#444444"
-                                           FontFamily="/Fonts/#Supermolot Light"
+                                           FontFamily="/Fonts/#JetBrains Mono"
                                            FontSize="10"
                                            Margin="0,3,0,0"/>
                             </StackPanel>
@@ -243,11 +243,11 @@
                             <StackPanel Grid.Column="0">
                                 <TextBlock Text="{DynamicResource Settings_Language_Title}"
                                            Foreground="White"
-                                           FontFamily="/Fonts/#Supermolot Light"
+                                           FontFamily="/Fonts/#JetBrains Mono"
                                            FontSize="13"/>
                                 <TextBlock Text="{DynamicResource Settings_Language_Desc}"
                                            Foreground="#444444"
-                                           FontFamily="/Fonts/#Supermolot Light"
+                                           FontFamily="/Fonts/#JetBrains Mono"
                                            FontSize="10"
                                            Margin="0,3,0,0"/>
                             </StackPanel>
@@ -269,7 +269,7 @@
 
                         <TextBlock Text="{DynamicResource Settings_DataManagement}"
                                    Foreground="#444444"
-                                   FontFamily="/Fonts/#Supermolot Light"
+                                   FontFamily="/Fonts/#JetBrains Mono"
                                    FontSize="11"
                                    Margin="16,10,16,10"/>
 
@@ -277,7 +277,7 @@
 
                         <TextBlock Text="{Binding StatusMessage}"
                                    Foreground="#00FF41"
-                                   FontFamily="/Fonts/#Supermolot Light"
+                                   FontFamily="/Fonts/#JetBrains Mono"
                                    FontSize="11"
                                    Margin="16,12,16,0"
                                    TextWrapping="Wrap"
@@ -292,11 +292,11 @@
                             <StackPanel Grid.Column="0">
                                 <TextBlock Text="{DynamicResource Settings_Import_Title}"
                                            Foreground="White"
-                                           FontFamily="/Fonts/#Supermolot Light"
+                                           FontFamily="/Fonts/#JetBrains Mono"
                                            FontSize="13"/>
                                 <TextBlock Text="{DynamicResource Settings_Import_Desc}"
                                            Foreground="#444444"
-                                           FontFamily="/Fonts/#Supermolot Light"
+                                           FontFamily="/Fonts/#JetBrains Mono"
                                            FontSize="10"
                                            Margin="0,3,0,0"/>
                             </StackPanel>
@@ -318,11 +318,11 @@
                             <StackPanel Grid.Column="0">
                                 <TextBlock Text="{DynamicResource Settings_Export_Title}"
                                            Foreground="White"
-                                           FontFamily="/Fonts/#Supermolot Light"
+                                           FontFamily="/Fonts/#JetBrains Mono"
                                            FontSize="13"/>
                                 <TextBlock Text="{DynamicResource Settings_Export_Desc}"
                                            Foreground="#444444"
-                                           FontFamily="/Fonts/#Supermolot Light"
+                                           FontFamily="/Fonts/#JetBrains Mono"
                                            FontSize="10"
                                            Margin="0,3,0,0"/>
                             </StackPanel>
@@ -342,7 +342,7 @@
 
                         <TextBlock Text="{DynamicResource Settings_DangerZone}"
                                    Foreground="#663333"
-                                   FontFamily="/Fonts/#Supermolot Light"
+                                   FontFamily="/Fonts/#JetBrains Mono"
                                    FontSize="11"
                                    Margin="16,10,16,10"/>
 
@@ -357,11 +357,11 @@
                             <StackPanel Grid.Column="0">
                                 <TextBlock Text="{DynamicResource Settings_DeleteAll_Title}"
                                            Foreground="#FF4D4D"
-                                           FontFamily="/Fonts/#Supermolot Light"
+                                           FontFamily="/Fonts/#JetBrains Mono"
                                            FontSize="13"/>
                                 <TextBlock Text="{DynamicResource Settings_DeleteAll_Desc}"
                                            Foreground="#663333"
-                                           FontFamily="/Fonts/#Supermolot Light"
+                                           FontFamily="/Fonts/#JetBrains Mono"
                                            FontSize="10"
                                            Margin="0,3,0,0"/>
                             </StackPanel>
@@ -380,39 +380,43 @@
 
         <!-- Modal Delete All -->
         <Grid Visibility="{Binding IsDeleteModalOpen, Converter={StaticResource BoolToVisibilityConverter}}">
+            <Grid.LayoutTransform>
+                <ScaleTransform ScaleX="{DynamicResource GlobalScaleInverse}"
+                    ScaleY="{DynamicResource GlobalScaleInverse}"/>
+            </Grid.LayoutTransform>
             <Rectangle Fill="#000000" Opacity="0.75"/>
             <Border Background="#111111" BorderBrush="#FF4D4D" BorderThickness="1"
-                    Width="460" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="36,30">
+            Width="460" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="36,30">
                 <StackPanel>
                     <TextBlock Text="{DynamicResource Modal_DeleteAll_Title}"
-                               Foreground="White"
-                               FontFamily="/Fonts/#Supermolot Light"
-                               FontSize="22"
-                               HorizontalAlignment="Center"
-                               Margin="0,0,0,12"/>
+                       Foreground="White" FontFamily="/Fonts/#JetBrains Mono"
+                       FontSize="18"
+                       HorizontalAlignment="Center"
+                       TextAlignment="Center"
+                       TextWrapping="Wrap"
+                       Margin="0,0,0,12"/>
                     <TextBlock Text="{DynamicResource Modal_DeleteAll_Warning}"
-                               Foreground="#FF4D4D"
-                               FontFamily="/Fonts/#Supermolot Light"
-                               FontSize="12"
-                               HorizontalAlignment="Center"
-                               Margin="0,0,0,20"/>
+                       Foreground="#FF4D4D" FontFamily="/Fonts/#JetBrains Mono"
+                       FontSize="11"
+                       HorizontalAlignment="Center"
+                       TextAlignment="Center"
+                       TextWrapping="Wrap"
+                       Margin="0,0,0,20"/>
                     <TextBlock Text="{DynamicResource Modal_DeleteAll_Confirm}"
-                               Foreground="#888888"
-                               FontFamily="/Fonts/#Supermolot Light"
-                               FontSize="12"
-                               HorizontalAlignment="Center"
-                               TextAlignment="Center"
-                               Margin="0,0,0,28"/>
+                       Foreground="#888888" FontFamily="/Fonts/#JetBrains Mono"
+                       FontSize="11"
+                       HorizontalAlignment="Center"
+                       TextAlignment="Center"
+                       TextWrapping="Wrap"
+                       Margin="0,0,0,28"/>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                         <Button Content="{DynamicResource Modal_Delete}"
-                                Width="120"
-                                Style="{StaticResource SailockButton_Danger}"
-                                Command="{Binding ConfirmDeleteCommand}"
-                                Margin="0,0,16,0"/>
+                        Width="120" Style="{StaticResource SailockButton_Danger}"
+                        Command="{Binding ConfirmDeleteCommand}"
+                        Margin="0,0,16,0"/>
                         <Button Content="{DynamicResource Modal_Cancel}"
-                                Width="120"
-                                Style="{StaticResource SailockButton}"
-                                Command="{Binding CancelDeleteCommand}"/>
+                        Width="120" Style="{StaticResource SailockButton}"
+                        Command="{Binding CancelDeleteCommand}"/>
                     </StackPanel>
                 </StackPanel>
             </Border>
@@ -420,46 +424,46 @@
 
         <!-- Modal Disable 2FA -->
         <Grid Visibility="{Binding IsDisable2FAModalOpen, Converter={StaticResource BoolToVisibilityConverter}}">
+            <Grid.LayoutTransform>
+                <ScaleTransform ScaleX="{DynamicResource GlobalScaleInverse}"
+                    ScaleY="{DynamicResource GlobalScaleInverse}"/>
+            </Grid.LayoutTransform>
             <Rectangle Fill="#000000" Opacity="0.75"/>
             <Border Background="#111111" BorderBrush="#00ab26" BorderThickness="1"
-                    Width="420" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="36,30">
+            Width="420" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="36,30">
                 <StackPanel>
                     <TextBlock Text="{DynamicResource Modal_Disable2FA_Title}"
-                               Foreground="White"
-                               FontFamily="/Fonts/#Supermolot Light"
-                               FontSize="22"
-                               HorizontalAlignment="Center"
-                               Margin="0,0,0,12"/>
+                       Foreground="White" FontFamily="/Fonts/#JetBrains Mono"
+                       FontSize="18"
+                       HorizontalAlignment="Center"
+                       TextAlignment="Center"
+                       TextWrapping="Wrap"
+                       Margin="0,0,0,12"/>
                     <TextBlock Text="{DynamicResource Modal_Disable2FA_Desc}"
-                               Foreground="#888888"
-                               FontFamily="/Fonts/#Supermolot Light"
-                               FontSize="12"
-                               HorizontalAlignment="Center"
-                               TextAlignment="Center"
-                               TextWrapping="Wrap"
-                               Margin="0,0,0,20"/>
+                       Foreground="#888888" FontFamily="/Fonts/#JetBrains Mono"
+                       FontSize="11"
+                       HorizontalAlignment="Center"
+                       TextAlignment="Center"
+                       TextWrapping="Wrap"
+                       Margin="0,0,0,20"/>
                     <TextBlock Text="{DynamicResource Modal_Disable2FA_Warning}"
-                               Foreground="#FF4D4D"
-                               FontFamily="/Fonts/#Supermolot Light"
-                               FontSize="12"
-                               HorizontalAlignment="Center"
-                               TextAlignment="Center"
-                               TextWrapping="Wrap"
-                               Margin="0,0,0,28"/>
+                       Foreground="#FF4D4D" FontFamily="/Fonts/#JetBrains Mono"
+                       FontSize="11"
+                       HorizontalAlignment="Center"
+                       TextAlignment="Center"
+                       TextWrapping="Wrap"
+                       Margin="0,0,0,28"/>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                         <Button Content="{DynamicResource Modal_Disable2FA_Button}"
-                                Width="130"
-                                Style="{StaticResource SailockButton_Danger}"
-                                Command="{Binding ConfirmDisable2FACommand}"
-                                Margin="0,0,16,0"/>
+                        Width="130" Style="{StaticResource SailockButton_Danger}"
+                        Command="{Binding ConfirmDisable2FACommand}"
+                        Margin="0,0,16,0"/>
                         <Button Content="{DynamicResource Modal_Cancel}"
-                                Width="130"
-                                Style="{StaticResource SailockButton}"
-                                Command="{Binding CancelDisable2FACommand}"/>
+                        Width="130" Style="{StaticResource SailockButton}"
+                        Command="{Binding CancelDisable2FACommand}"/>
                     </StackPanel>
                 </StackPanel>
             </Border>
         </Grid>
-
     </Grid>
 </UserControl>

@@ -37,12 +37,13 @@ namespace Sailock.Services
         {
             double scale = size switch
             {
-                "Small" => 0.85,
-                "Large" => 1.20,
-                _       => 1.0   // Default
+                "Small" => 1.0,
+                "Large" => 1.40,
+                _ => 1.15
             };
 
             Application.Current.Resources["GlobalScale"] = scale;
+            Application.Current.Resources["GlobalScaleInverse"] = 1.0 / scale;
         }
 
         public static void ApplyTheme(bool isDark)

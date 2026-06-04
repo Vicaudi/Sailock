@@ -15,14 +15,14 @@
 
                 <TextBlock Text="{DynamicResource Totp_Title}"
                            Foreground="White"
-                           FontFamily="/Fonts/#Supermolot Light"
+                           FontFamily="/Fonts/#JetBrains Mono"
                            FontSize="22"
                            HorizontalAlignment="Center"
                            Margin="0,0,0,8"/>
 
                 <TextBlock Text="{DynamicResource Totp_ScanDesc}"
                            Foreground="#666666"
-                           FontFamily="/Fonts/#Supermolot Light"
+                           FontFamily="/Fonts/#JetBrains Mono"
                            FontSize="11"
                            TextAlignment="Center"
                            TextWrapping="Wrap"
@@ -35,21 +35,21 @@
 
                 <TextBlock Text="{DynamicResource Totp_ManualKey}"
                            Foreground="#444444"
-                           FontFamily="/Fonts/#Supermolot Light"
+                           FontFamily="/Fonts/#JetBrains Mono"
                            FontSize="10"
                            HorizontalAlignment="Center"
                            Margin="0,0,0,4"/>
 
                 <TextBlock Text="{Binding Secret}"
                            Foreground="#00FF41"
-                           FontFamily="/Fonts/#Supermolot Light"
+                           FontFamily="/Fonts/#JetBrains Mono"
                            FontSize="11"
                            HorizontalAlignment="Center"
                            Margin="0,0,0,20"/>
 
                 <TextBlock Text="{DynamicResource Totp_CodeLabel}"
                            Foreground="#666666"
-                           FontFamily="/Fonts/#Supermolot Light"
+                           FontFamily="/Fonts/#JetBrains Mono"
                            FontSize="11"
                            HorizontalAlignment="Center"
                            Margin="0,0,0,8"/>
@@ -63,7 +63,7 @@
 
                 <TextBlock Text="{Binding ErrorMessage}"
                            Foreground="#FF4D4D"
-                           FontFamily="/Fonts/#Supermolot Light"
+                           FontFamily="/Fonts/#JetBrains Mono"
                            FontSize="11"
                            HorizontalAlignment="Center"
                            Margin="0,0,0,16"

@@ -4,6 +4,22 @@ Todos los cambios de Sailock se documentan aquí.
 
 ---
 
+## [1.2.1] - 2026-06-04
+
+### Fixed
+* Corregida la desincronización entre campo de contraseña visible y oculto
+* Solucionado el caché visual en el campo de contraseña maestra
+* Corregida la alineación del campo de contraseña al alternar visibilidad
+* Corregidos errores ortográficos en textos en español
+
+### Changed
+* Fuente actualizada a JetBrains Mono
+* Ajustados los tamaños Small, Default y Large con mayor diferencia
+* El escalado no afecta a modales ni formularios
+* La barra lateral escala junto al contenido
+
+---
+
 ## [1.2.0] - 2026-06-01
 
 ### Added

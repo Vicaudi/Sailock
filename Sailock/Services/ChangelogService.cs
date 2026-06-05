@@ -9,9 +9,20 @@ namespace Sailock.Services
         {
             new ChangelogEntry
             {
+                Version  = "1.2.2",
+                Date     = "2026-06-05",
+                IsLatest = true,
+                Fixed = new List<string>
+                {
+                    "Restaurada la visibilidad del botón de versión en la barra lateral",
+                    "Corregido un problema que hacía el acceso al historial de versiones poco visible"
+                }
+            },
+            new ChangelogEntry
+            {
                 Version  = "1.2.1",
                 Date     = "2026-06-04",
-                IsLatest = true,
+                IsLatest = false,
                 Fixed = new List<string>
                 {
                     "Corregida la desincronización entre el campo de contraseña visible y oculto en los formularios",

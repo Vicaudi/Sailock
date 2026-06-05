@@ -4,6 +4,14 @@ Todos los cambios de Sailock se documentan aquí.
 
 ---
 
+## [1.2.2] - 2026-06-05
+
+### Fixed
+* Restaurada la visibilidad del botón de versión en la barra lateral
+* Corregido un problema que hacía el acceso al historial de versiones poco visible
+
+---
+
 ## [1.2.1] - 2026-06-04
 
 ### Fixed

@@ -10,6 +10,7 @@ namespace Sailock
         public MainWindow()
         {
             InitializeComponent();
+            VersionText.Text = AppVersion;
         }
 
         // Registrar cualquier movimiento de ratón o tecla como actividad

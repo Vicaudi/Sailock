@@ -3,14 +3,14 @@
                     xmlns:sys="clr-namespace:System;assembly=mscorlib">
 
     <!-- ── MainWindow / Sidebar ── -->
-    <sys:String x:Key="Nav_Dashboard">PANEL</sys:String>
+    <sys:String x:Key="Nav_Dashboard">PANEL CENTRAL</sys:String>
     <sys:String x:Key="Nav_Generator">GENERADOR</sys:String>
     <sys:String x:Key="Nav_Settings">AJUSTES</sys:String>
     <sys:String x:Key="Nav_Logout">CERRAR SESIÓN</sys:String>
 
     <!-- ── LoginView ── -->
     <sys:String x:Key="Login_CreateMaster">CREA TU CONTRASEÑA MAESTRA</sys:String>
-    <sys:String x:Key="Login_Error">Contraseña o código incorrectos</sys:String>
+    <sys:String x:Key="Login_Error">CONTRASEÑA INCORRECTA</sys:String>
     <sys:String x:Key="Login_Unlock">ENTRAR</sys:String>
     <sys:String x:Key="Login_Create">CREAR</sys:String>
     <sys:String x:Key="Login_TotpLabel">CÓDIGO DE VERIFICACIÓN</sys:String>
@@ -87,7 +87,7 @@
     <sys:String x:Key="Settings_MasterPass_Button">CAMBIAR</sys:String>
 
     <sys:String x:Key="Settings_AutoLock_Title">BLOQUEO AUTOMÁTICO</sys:String>
-    <sys:String x:Key="Settings_AutoLock_Desc">Cierra sesión automáticamente tras 5 minutos de inactividad</sys:String>
+    <sys:String x:Key="Settings_AutoLock_Desc">Cierra sesión automáticamente tras 2 minutos de inactividad</sys:String>
 
     <!-- Accessibility -->
     <sys:String x:Key="Settings_Theme_Title">TEMA</sys:String>

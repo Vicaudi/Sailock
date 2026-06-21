@@ -1,4 +1,4 @@
-﻿using System.Windows;
+using System.Windows;
 
 namespace Sailock.Services
 {
@@ -11,7 +11,9 @@ namespace Sailock.Services
             string fileName = language switch
             {
                 "Español" => "Strings.es.xaml",
-                _         => "Strings.en.xaml"
+                "Deutsch" => "Strings.de.xaml",
+                "Français" => "Strings.fr.xaml",
+                _ => "Strings.en.xaml"
             };
 
             var uri = new System.Uri(BaseUri + fileName, System.UriKind.Absolute);
@@ -19,7 +21,6 @@ namespace Sailock.Services
 
             var resources = Application.Current.Resources.MergedDictionaries;
 
-            // Eliminar el diccionario de localización anterior si existe
             for (int i = resources.Count - 1; i >= 0; i--)
             {
                 var source = resources[i].Source?.ToString();

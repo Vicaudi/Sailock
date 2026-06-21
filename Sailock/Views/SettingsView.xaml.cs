@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -10,7 +10,7 @@ namespace Sailock.Views
             new List<string> { "Small", "Default", "Large" };
 
         public static List<string> LanguageOptions { get; } =
-            new List<string> { "English", "Español" };
+            new List<string> { "English", "Español", "Deutsch", "Français" };
 
         public static List<string> AutoLockOptions { get; } =
             new List<string> { "Disabled", "30 sec", "1 min", "2 min", "5 min" };

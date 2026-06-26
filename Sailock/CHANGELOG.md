@@ -1,6 +1,20 @@
 ﻿# Changelog — Sailock
 Todos los cambios de Sailock se documentan aquí.
 
+## [1.4.0] - 2026-06-21
+
+### Added
+* Nuevo filtro de categorías en Dashboard para visualizar entradas por categoría o todas las entradas.
+* Campo URL/Website en las entradas de contraseña para identificar cuentas más fácilmente.
+* Soporte para idioma Alemán (Deutsch).
+* Soporte para idioma Francés (Français).
+
+### Changed
+* Dashboard ahora muestra una columna Website con la URL asociada a cada entrada.
+* La búsqueda ahora incluye coincidencias en URLs y sitios web.
+* La sección de idioma en Ajustes incluye nuevas opciones de localización.
+
+---
 
 ## [1.3.1] - 2026-06-15
 

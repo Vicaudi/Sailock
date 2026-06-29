@@ -14,7 +14,7 @@ namespace Sailock.Services
                 IsLatest = true,
                 Fixed = new List<string>
                 {
-                    "Added the missing translations for English, Spanish, German, and French in Change Master Password modal",
+                    "Añadida la traducción para Ingles, Español, Aleman y Frances en el modal de Change Master Password",
                 }
             },
 

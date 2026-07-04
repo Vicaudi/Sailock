@@ -58,7 +58,20 @@ namespace Sailock
 
         private void VersionText_Click(object sender, MouseButtonEventArgs e)
         {
-            (DataContext as MainViewModel)?.ShowChangelogCommand.Execute(null);
+            const string url = "https://github.com/Sailok25/Sailock/releases";
+
+            try
+            {
+                var psi = new System.Diagnostics.ProcessStartInfo
+                {
+                    FileName = url,
+                    UseShellExecute = true
+                };
+                System.Diagnostics.Process.Start(psi);
+            }
+            catch
+            {
+            }
         }
 
         public string AppVersion => $"v{Services.VersionService.Current}";

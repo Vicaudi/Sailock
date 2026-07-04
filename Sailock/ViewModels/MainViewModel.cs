@@ -40,7 +40,6 @@ namespace Sailock.ViewModels
         public ICommand NavigateGeneratorCommand { get; }
         public ICommand NavigateSettingsCommand { get; }
         public ICommand LogoutCommand { get; }
-        public ICommand ShowChangelogCommand { get; }
 
         public MainViewModel()
         {
@@ -49,7 +48,6 @@ namespace Sailock.ViewModels
             NavigateSettingsCommand = new RelayCommand(_ => ShowSettings());
             LogoutCommand = new RelayCommand(_ => Logout());
             ShowLogin();
-            ShowChangelogCommand = new RelayCommand(_ => ShowChangelog());
         }
 
         private void ShowLogin()
@@ -61,7 +59,6 @@ namespace Sailock.ViewModels
 
             var loginVM = new LoginViewModel(_storage);
             loginVM.OnLoginSuccess = OnLoginSuccess;
-            loginVM.ShowChangelogCommand = ShowChangelogCommand;
             CurrentView = loginVM;
         }
 
@@ -168,14 +165,6 @@ namespace Sailock.ViewModels
         {
             _dashboardVM = null;
             ShowLogin();
-        }
-
-        private void ShowChangelog()
-        {
-            var changelogVM = new ChangelogViewModel();
-            var previousView = CurrentView;
-            changelogVM.OnClose = () => CurrentView = previousView;
-            CurrentView = changelogVM;
         }
     }
 }

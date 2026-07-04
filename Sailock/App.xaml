@@ -86,9 +86,6 @@
             <DataTemplate DataType="{x:Type vm:SetupTotpViewModel}">
                 <views:SetupTotpView/>
             </DataTemplate>
-            <DataTemplate DataType="{x:Type vm:ChangelogViewModel}">
-                <views:ChangelogView/>
-            </DataTemplate>
 
             <!-- Estilo base de Window -->
             <Style TargetType="Window">
